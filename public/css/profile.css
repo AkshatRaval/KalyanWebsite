@@ -1,0 +1,110 @@
+.profile-container{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container .profile-card{
+    /* background: #686868; */
+    height: 100%;
+    width: 50%;
+    
+}
+
+.card-details{
+    position: relative;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f9f9f9, #c8f9ff80);
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 25px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card-details h1{
+    font-size: 35px;
+}
+.card-details button{
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin: 10px;
+    font-size: 16px;
+    transition: 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px; /* Make the button more square */
+}
+
+.card-details button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #2575fc;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .profile-container .profile-card {
+        width: 70%;
+    }
+
+    .card-details {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-container .profile-card {
+        width: 90%;
+    }
+
+    .card-details h1 {
+        font-size: 24px;
+    }
+
+    .card-details button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container .profile-card {
+        width: 100%;
+    }
+
+    .card-details {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .card-details h1 {
+        font-size: 22px;
+    }
+
+    .card-details button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}

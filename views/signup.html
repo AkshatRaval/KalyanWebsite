@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Kalyan</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+    <div class="signupContainer">
+        <div class="form-box signup">
+            <form id="signupForm">
+                <h1>Welcome!</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required id="name">
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required id="email">
+                    <i class='bx bx-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required id="password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <button type="submit" class="submitButtom" id="signupBtn">Signup</button>
+                <div class="signup" style="text-align: center;">
+                    <p>Already have any account? <span><a href="/login" style="color: white;">Login</a></span></p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="/js/popup.js"></script>
+    <script type="module">
+        import { signUpUser, getAuth } from "/js/auth.js";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const signupForm = document.getElementById("signupForm");
+            if (!signupForm) {
+                console.error("Signup form not found!");
+                return;
+            }
+
+            signupForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+
+                if (!name || !email || !password) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                await signUpUser(name, email, password);
+            });
+        });
+    </script>
+</body>
+
+</html>

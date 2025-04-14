@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Home | Kalyan</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navContainer">
+            <!-- <div class="logo">
+                <img src="/assets/kalyanlogo.png" alt="logo">
+            </div> -->
+            <div class="navbar_list">
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href="#">Registration</a>
+                    <ul class="dropdown">
+                        <li><a href="/registration">Apply</a></li>
+                        <li><a href="#">My Application</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Download</a>
+                    <ul class="dropdown">
+                        <li><a href="/assets/files/GCG Exam Course Details.pdf" download="Syllabus.pdf">Syllabus</a>
+                        </li>
+                        <li><a href="/assets/files/GCG Exam Course Details.pdf" download="Syllabus.pdf">Sample
+                                Papers</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">About</a></li>
+            </div>
+            <div class="loginSetup">
+                <a href="/login">
+                    <button class="loginButton button" id="loginBtn">Login</button>
+                </a>
+                <a href="/profile" id="profileBtn" style="display: none;">Profile</a>
+            </div>
+        </ul>
+    </nav>
+
+    <section class="profile-container">
+        <div class="profile-card" id="profileCard" style="display: none;">
+            <div class="card-details">
+                <h1>Welcome, <span id="userName">User</span>!</h1>
+                <p class="quote">A quote will come here</p>
+                <p>Email: <span id="userEmail">example@gmail.com</span></p>
+                <div class="profileBtns flex">
+                    <button id="resetBtn" class="logout-button">Reset Password</button>
+                    <button id="logoutBtn" class="logout-button">Logout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+        <div class="FooterContainer">
+            <div class="footer-content">
+                <h3>Kalyan</h3>
+                <img src="assets/kalyanlogo.jpg" alt="logo" class="logo">
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p><strong>Email:</strong> kalyanconsultancy6800@gmail.com</p>
+                <p><strong>Phone:</strong> +915222222222</p>
+                <p><strong>Address:</strong> xyz society</p>
+            </div>
+
+            <div class="footer-content">
+                <h3>Follow us</h3>
+                <ul class="social-icons">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/kalyan_trust_2017"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/@kalyaninspiration"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottam-bar">
+            <p>&copy; 2025 Kalyan Educational And Cheritable Trust. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const user = JSON.parse(localStorage.getItem("user")); // Get user from localStorage
+
+            if (user) {
+                document.getElementById("loginBtn").style.display = "none";
+                document.getElementById("profileBtn").style.display = "block";
+                // Show Profile Card
+                document.getElementById("profileCard").style.display = "block";
+                document.getElementById("userName").innerText = user.name;
+                document.getElementById("userEmail").innerText = user.email;
+            } else {
+                document.getElementById("loginBtn").style.display = "block";
+                document.getElementById("profileBtn").style.display = "none";
+                document.getElementById("profileCard").style.display = "none";
+            }
+
+            // Logout functionality
+            document.getElementById("logoutBtn").addEventListener("click", () => {
+                localStorage.removeItem("user"); // Clear user data
+                window.location.href = "/"; // Redirect to login
+            });
+        });
+    </script>
+    <script type="module">
+        import { resetPassword } from "./js/auth.js";
+        import { auth } from "./js/firebase.js";
+
+        const user = auth.currentUser;
+        document.addEventListener("DOMContentLoaded", () => {
+            const resetBtn = document.getElementById("resetBtn");
+
+            if (resetBtn) {
+                resetBtn.addEventListener("click", () => {
+                    const user = auth.currentUser;
+                    if (!user) {
+                        alert("🚫 No user is currently logged in. Please log in first.");
+                        return;
+                    }
+
+                    const email = user.email;
+                    resetPassword(email);
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

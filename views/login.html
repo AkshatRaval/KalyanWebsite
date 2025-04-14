@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Kalyan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
+
+    <style>
+        .not_active {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/forgotPass.css">
+</head>
+
+<body>
+    <div class="loginContainer">
+        <div class="form-box login">
+            <form id="login-form" method="post">
+                <h1>Welcome!</h1>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required id="login-email">
+                    <i class='fa-solid fa-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required id="login-password">
+                    <i class='fa-solid fa-lock'></i>
+                </div>
+                <button class="forgotpass" id="forgotPassBtn">
+                    <p>Forgot Password?</p>
+                </button>
+                <button type="submit" class="loginButton" id="loginButton">Login</button>
+                <div class="signup" style="text-align: center;">
+                    <p>Did not have any account? <span><a href="/signup" style="color: white;">Sign up</a></span></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="popupWindow" class="not_active">
+        <div class="form-container">
+            <button id="closerBtn"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="logo-container">
+                <h2>Forgot Password?</h2>
+            </div>
+            <form class="ForgotPassform">
+                <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="Enter your email" required="">
+                </div>
+
+                <button class="form-submit-btn" type="submit">Send Email</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { loginUser, forgotPassword } from "./js/auth.js";
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById("login-form");
+            if (!loginForm) {
+                console.error("Login form not found!");
+                return;
+            }
+
+            loginForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const email = document.getElementById("login-email").value.trim();
+                const password = document.getElementById("login-password").value.trim();
+
+                if (!email || !password) {
+                    alert("Please enter both email and password.");
+                    return;
+                }
+
+                await loginUser(email, password);
+            });
+        });
+        document.querySelector('.ForgotPassform').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+
+            const response = await forgotPassword(email);
+
+            if (!response.success && response.error === "Firebase: Error (auth/user-not-found).") {
+                alert("User does not exist.");
+            }
+        });
+        document.getElementById('forgotPassBtn').addEventListener('click', () => {
+            document.getElementById('popupWindow').classList.toggle('active');
+        });
+        document.getElementById('closerBtn').addEventListener('click', () => {
+            document.getElementById('popupWindow').classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>

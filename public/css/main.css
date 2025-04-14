@@ -1,0 +1,824 @@
+/* ========================= Root Colors ========================= */
+:root {
+    --primary-color: #0075eafe;
+    --secondary-color: #0062c4fe;
+    --text-color: #fff;
+    --background-color: #f1f1f1;
+    --other-text-color: #080808;
+    --shadow-color-white: #f8f8f895;
+}
+
+/* ========================= CSS Reset ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition-duration: .2s;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(182deg, #f9fdff, #b2c8ff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ========================= Navbar ========================= */
+
+.navbar .navContainer {
+    height: 50px;
+    padding: 0px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navContainer .logo {
+    flex: 1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.navContainer .logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 2px;
+
+}
+
+.navbar ul {
+    list-style: none;
+    background-color: var(--primary-color);
+}
+
+.navbar ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.navContainer .navbar_list{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex: 2;
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar ul li ul.dropdown li {
+    display: block;
+}
+
+.navbar ul li ul.dropdown li a {
+    font-size: 15px;
+    margin: 0;
+}
+
+.navbar ul li ul.dropdown {
+    width: 100%;
+    background: var(--primary-color);
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.navbar ul li:hover {
+    background: #0062c4fe;
+}
+
+.navbar ul li:hover ul.dropdown {
+    display: block;
+}
+
+.navContainer .loginSetup {
+    flex: 0;
+}
+
+/* ========================= Buttons ========================= */
+
+.button {
+    font-weight: 500;
+    color: white;
+    outline: none;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+
+.button:hover {
+    background: var(--secondary-color);
+}
+
+.loginSetup a {
+    text-decoration: none;
+    color: white;
+}
+#profileBtn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: .5px solid black;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+#profileBtn:hover {
+    background: var(--secondary-color);
+}
+
+/* ========================= Mid Section ========================= */
+
+.midPart {
+    width: 100%;
+    height: 70%;
+}
+
+.midPart .image-container {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/homepagebg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover
+}
+
+.midPart .image-container .sideText {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    width: 75%;
+    height: auto;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px var(--shadow-color-white);    
+}
+
+.midPart .image-container .sideText p {
+    margin: 10px 0px;
+    font-size: 25px;
+    text-align: justify;
+    color: white;
+}
+
+.midPart .image-container .sideText button {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.767);
+    border: 1px solid var(--other-text-color);
+    border-radius: 4px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    padding: 10px 50px;
+    margin-top: 10px;
+}
+
+.midPart .image-container .sideText button a{
+    text-decoration: none;
+    color: var(--pther-text-color);
+}
+
+.midPart .image-container .sideText button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+/* ========================= Details Section ========================= */
+
+.row {
+    display: flex;
+    margin: 50px 0px;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+
+}
+
+.detailContainerNew{
+    background: white;
+    margin: 1rem 1.5rem;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+}
+
+.row .detailContainerNew .detailsheader{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px;
+}
+
+.row .detailContainerNew .detailBody{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    background: white;
+    line-height: 1.4;
+}
+
+
+/* ========================= Vision-Mission Section ========================= */
+
+
+.infoSection {
+    background-color: #f4f4f4;
+}
+
+.infoContainer,
+.goalContainer {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 12px;
+
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+
+.infoContainer h2,
+.goalContainer h2 {
+    font-size: 30px;
+    color: #222;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.infoContainer p,
+.goalContainer p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.infoContainer ul,
+.goalContainer ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.infoContainer ul li,
+.goalContainer ul li {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+
+/* ========================= Footer Section ========================= */
+
+footer {
+    color: white;
+    background: var(--primary-color);
+    padding-top: 10px;
+}
+
+.FooterContainer {
+    width: 100%;
+    gap: 10%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.FooterContainer .footer-content {
+    margin: 20px 0px;
+    flex: 1;
+}
+
+.footer-content .logo{
+    width: 100px;
+    border-radius: 25px;
+}
+
+.footer-content h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+
+.footer-content p {
+    width: 100%;
+    padding: 2px 7px;
+}
+
+.footer-content ul {
+    text-align: center;
+
+}
+
+.footer-content .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+}
+
+.footer-content .social-icons li {
+    list-style: none;
+    color: white;
+    font-size: 25px
+}
+
+.footer-content .social-icons li a i {
+
+    color: white;
+    margin: 0px 10px;
+    font-size: 30px;
+}
+
+.footer-content .Footerlist li a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.social-icons li a:hover i {
+    text-shadow: 0px 0px 5px rgb(8, 0, 255);
+
+}
+
+.bottam-bar {
+    background: #0049dc;
+    text-align: center;
+    padding: 5px;
+    margin-top: 50px;
+}
+
+.bottam-bar p {
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-size: 15px;
+
+}
+
+
+/* ========================= Media Queris ========================= */
+
+
+/* ========================= Laptop M ========================= */
+
+@media screen and (max-width: 1024px) {
+    .navContainer {
+        padding: 0px 10px;
+    }
+
+    .loginButton{
+        font-weight: 400;
+        font-size: 15px;
+        padding: 5px 10px;
+    } 
+
+    .navbar ul li a {
+        font-size: 15px;
+    }
+
+    .midPart .image-container .sideText {
+        width: 75%;
+    }
+
+    .midPart .image-container .sideText p {
+        font-size: 20px;
+    }
+
+    .midPart .image-container .sideText button {
+        font-size: 13px;
+    }
+
+    .row {
+        margin: 10px 0px;
+    }
+
+    .detailContainer {
+        margin: .5rem 1rem;
+        padding: 0rem .5rem;
+    }
+
+    .detailContainer p {
+        font-size: 10px;
+    }
+    .detailContainer h2 {
+        font-size: 15px;
+    }
+
+    .textButton {
+        font-size: 13px;
+    }
+
+    .footer-content h3 {
+        font-size: 20px;
+    }
+
+    .footer-content p {
+        width: 90%;
+    }
+
+    .footer-content .Footerlist li::before {
+        width: 40px;
+    }
+
+    .footer-content .social-icons li a i {
+        font-size: 20px;
+    }
+
+    .footer-content .Footerlist li {
+        padding: 5px;
+    }
+
+    .footer-content .Footerlist li a {
+        font-size: 13px;
+    }
+
+    .bottam-bar p {
+        font-size: 10px;
+    }
+
+    .infoContainer h2,
+    .goalContainer h2 {
+        font-size: 20px;
+    }
+
+    .footer-content .logo{
+        width: 100px;
+        border-radius: 25px;
+    }
+    
+
+    .infoContainer p,
+    .goalContainer p {
+        font-size: 13px;
+    }
+
+    .infoContainer ul li,
+    .goalContainer ul li {
+        font-size: 13px;
+    }
+    
+}
+
+/* ========================= Tablet ========================= */
+
+@media screen and (max-width: 768px) {
+    .navbar .navContainer {
+        padding: 0px 20px;
+    }
+
+    .navbar ul li a {
+        margin: 0px 2px;
+        padding: 5px 7.5px;
+        font-size: 13px;
+    }
+
+    .midPart .image-container .sideText {
+        width: 70%;
+    }
+
+    .midPart .image-container .sideText p {
+        font-size: 15px;
+    }
+
+    .midPart .image-container .sideText button {
+        font-size: 15px;
+    }
+
+    .row {
+        margin: 20px 0px;
+    }
+
+    .detailContainer {
+        margin: .5rem 1rem;
+        padding: 0rem .5rem;
+    }
+
+    .detailContainer p {
+        font-size: 13px;
+    }
+    .detailContainer h2 {
+        font-size: 20px;
+    }
+
+    .textButton {
+        font-size: 15px;
+    }
+
+    .footer-content h3 {
+        font-size: 25px;
+    }
+
+    .footer-content p {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    .footer-content .Footerlist li::before {
+        width: 50px;
+    }
+
+    .footer-content .social-icons li a i{
+        font-size: 30px;
+    }
+
+    .footer-content .Footerlist li {
+        padding: 5px;
+    }
+
+    .footer-content .Footerlist li a {
+        font-size: 15px;
+    }
+
+    .FooterContainer{
+        margin: 0px 3px; 
+        gap: 5%;
+    }
+
+    .footer-content .logo{
+        width: 50px;
+        border-radius: 15px;
+    }
+    
+
+    .bottam-bar p {
+        font-size: 13px;
+    }
+
+    .infoContainer h2,
+    .goalContainer h2 {
+        font-size: 25px;
+    }
+
+    .infoContainer p,
+    .goalContainer p {
+        font-size: 15px;
+    }
+
+    .infoContainer ul li,
+    .goalContainer ul li {
+        font-size: 15px;
+    }
+    
+}
+
+/* ========================= Mobile L ========================= */
+
+@media screen and (max-width: 425px) {
+
+    .navbar ul li a {
+        margin: 0px 2px;
+        padding: 5px 7.5px;
+        font-size: 10px;
+    }
+
+    .navbar ul li ul.dropdown li a{
+        font-size: 8px;
+    }
+
+    .navbar .navContainer{
+        height: 35px;
+        padding: 0px 10px;
+    }
+
+    .loginButton{
+        font-size: 10px;
+        padding: 5px 10px;
+    } 
+
+
+    .midPart .image-container .sideText {
+        width: 70%;
+    }
+
+    .midPart .image-container .sideText p {
+        font-size: 10px;
+    }
+
+    .midPart .image-container .sideText button {
+        font-size: 9px;
+        padding: 5px 20px;
+    }
+
+    .row {
+        margin: 5px 0px;
+    }
+
+    .detailContainerNew {
+        margin: .5rem 1rem;
+    }
+
+    .detailsParagraph i, .detailsParagraph span{
+        font-size: 10px;
+    }
+
+    .detailContainerNew h3 {
+        font-size: 15px;
+    }
+
+    .textButton {
+        font-size: 10px;
+    }
+
+    .FooterContainer{
+        margin: 0px 3px; 
+        gap: 5%;
+    }
+    .footer-content h3 {
+        font-size: 15px;
+    }
+    
+    .footer-content p {
+        font-size: 10px;
+        width: 90%;
+    }
+
+    .footer-content .Footerlist li::before {
+        width: 30px;
+    }
+
+    .footer-content .social-icons li a i {
+        font-size:20px;
+    }
+
+    .footer-content .Footerlist li {
+        padding: 5px;
+    }
+
+    .footer-content .Footerlist li a {
+        font-size: 10px;
+    }
+
+    .bottam-bar p {
+        font-size: 8px;
+    }
+
+    .infoContainer h2,
+    .goalContainer h2 {
+        font-size: 15px;
+    }
+
+    .infoContainer p,
+    .goalContainer p {
+        font-size: 10px;
+    }
+
+    .infoContainer ul li,
+    .goalContainer ul li {
+        font-size: 10px;
+    }
+
+    .profileBtn{
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+}
+
+/* ========================= Mobile L ========================= */
+
+@media screen and (max-width: 375px) {
+    .navContainer {
+        padding: 0px 5px;
+    }
+
+    .navbar ul li a {
+        padding: 5px 7.5px;
+        font-size: 10px;
+    }
+
+    .navbar .navContainer{
+        padding: 0px 10px;
+    }
+
+    .loginButton{
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+    .navbar ul li ul.dropdown li a {
+        font-size: 10px;
+    }
+
+
+    .midPart .image-container .sideText {
+        width: 80%;
+    }
+
+    .midPart .image-container .sideText p {
+        font-size: 10px;
+    }
+
+    .midPart .image-container .sideText button {
+        font-size: 9px;
+        padding: 5px 20px;
+    }
+
+    .row {
+        margin: 5px 0px;
+    }
+
+    .detailContainerNew {
+        margin: .5rem 1rem;
+    }
+
+    .updateSection marquee{
+        height: 200;
+    }
+
+    .detailsParagraph i, .detailsParagraph span{
+        font-size: 10px;
+    }
+
+    .detailContainerNew h3 {
+        font-size: 15px;
+    }
+
+    .textButton {
+        font-size: 10px;
+    }
+
+    .footer-content h3 {
+        font-size: 15px;
+    }
+    
+    .footer-content p {
+        font-size: 10px;
+        width: 100px;
+        padding: 2px;
+    }
+
+    .footer-content .Footerlist li::before {
+        width: 30px;
+    }
+
+    .footer-content .social-icons li a i {
+        font-size: 15px;
+    }
+
+    .footer-content .Footerlist li {
+        padding: 5px;
+    }
+
+    .footer-content .Footerlist li a {
+        font-size: 10px;
+    }
+
+    .bottam-bar p {
+        font-size: 8px;
+    }
+
+    .infoContainer h2,
+    .goalContainer h2 {
+        font-size: 15px;
+    }
+
+    .infoContainer p,
+    .goalContainer p {
+        font-size: 10px;
+    }
+
+    .infoContainer ul li,
+    .goalContainer ul li {
+        font-size: 10px;
+    }
+
+    .profileBtn{
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+}
