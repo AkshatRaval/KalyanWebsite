@@ -90,9 +90,3 @@ app.listen(PORT, () => {
     console.log(`✅ Server running at http://localhost:${PORT}`);
 });
 
-
-// JWT_SECRET_KEY = 9c85dc1da71d4df036c5d83402ada7b5b3b8ef05369169f4e95b6116d09b3d31c0fa371a025e7c6041a299249a621455b7cf8f63b84fe8453d8cd705d4b1c4ac
-// PORT = 3000
-// RAZORPAY_KEY_ID = rzp_test_6nP6xK0lboh5tX
-// RAZORPAY_SECRET = trUNewz9HOxZAgoDJPcsoIdy
-// SHEET_ID = 1rf6O9_2AU30otW63KAepngP08lOg_N0WiRFi5JoIRaI

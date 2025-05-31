@@ -26,9 +26,10 @@ router.get("/profile", (req, res) => {
 router.get("/registration", (req, res) => {
     res.sendFile(path.join(__dirname, "../views/registration.html"));
 });
-router.get("/myApplication", (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/myApplication.html"));
-});
 
 // Export routes
+// router.get("/test", (req, res) => {
+//     res.send("Form route working!");
+// });
+
 module.exports = router;

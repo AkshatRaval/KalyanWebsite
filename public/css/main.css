@@ -323,9 +323,21 @@ footer {
     flex: 1;
 }
 
+.centerDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columnFlex{
+    flex-direction: column;
+}
+
 .footer-content .logo{
     width: 100px;
     border-radius: 25px;
+    align-self: center;
 }
 
 .footer-content h3 {
@@ -336,6 +348,7 @@ footer {
 }
 
 .footer-content p {
+    text-align: center;
     width: 100%;
     padding: 2px 7px;
 }
