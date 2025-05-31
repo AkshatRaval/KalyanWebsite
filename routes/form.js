@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const express = require("express");
-const router = express.Router(); // ✅ Make sure this line is here
+const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -10,11 +10,31 @@ const { google } = require("googleapis");
 const { Readable } = require("stream");
 const Razorpay = require("razorpay");
 
+// Custom modules
+const generatePDF = require("../generatePDF");
+const uploadFileToDrive = require("../uploadFileToDrive");
+const sendPaymentConfirmationEmail = require("./sendPaymentEmail"); // ✅ Adjust path if needed
+
+// Multer for memory-based file upload
 const upload = multer({ storage: multer.memoryStorage() });
 
-const generatePDF = require("../generatePDF");
-const uploadFileToDrive = require("../uploadFileToDrive"); // ✅ These should exist
+// Razorpay setup
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_SECRET
+});
 
+// Google API setup
+const auth = new google.auth.GoogleAuth({
+  keyFile: "keyGoogle.json",
+  scopes: ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/spreadsheets"]
+});
+
+const drive = google.drive({ version: "v3", auth });
+const sheets = google.sheets({ version: "v4", auth });
+const SHEET_ID = process.env.SHEET_ID;
+
+// Submit route
 router.post("/submit", upload.any(), async (req, res) => {
   try {
     const {
@@ -46,7 +66,6 @@ router.post("/submit", upload.any(), async (req, res) => {
 
     const folderId = folderResponse.data.id;
 
-    // Upload user files
     const fileUploadPromises = files.map(file => {
       const stream = new Readable();
       stream.push(file.buffer);
@@ -60,7 +79,6 @@ router.post("/submit", upload.any(), async (req, res) => {
 
     const fileUrls = await Promise.all(fileUploadPromises);
 
-    // Generate + upload application PDF
     const userData = {
       aadhaar,
       name: `${firstName} ${middleName} ${lastName}`,
@@ -74,11 +92,8 @@ router.post("/submit", upload.any(), async (req, res) => {
 
     const pdfPath = await generatePDF(userData);
     const pdfUrl = await uploadFileToDrive(pdfPath, `${aadhaar}_application.pdf`, folderId);
-
-    // Remove local PDF
     fs.unlinkSync(pdfPath);
 
-    // Append to sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
       range: "Sheet1!A1",
@@ -97,7 +112,6 @@ router.post("/submit", upload.any(), async (req, res) => {
       }
     });
 
-    // Send email
     sendPaymentConfirmationEmail(email, {
       name: userData.name,
       paymentId: payment_id,
@@ -110,6 +124,42 @@ router.post("/submit", upload.any(), async (req, res) => {
   } catch (error) {
     console.error("❌ Error:", error);
     res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
+
+// GET route to fetch application PDF link
+router.get("/myApplication/:aadhaar", async (req, res) => {
+  const { aadhaar } = req.params;
+
+  try {
+    const folderList = await drive.files.list({
+      q: `mimeType='application/vnd.google-apps.folder' and name='${aadhaar}'`,
+      fields: "files(id, name)",
+      spaces: "drive"
+    });
+
+    if (!folderList.data.files.length) {
+      return res.status(404).json({ success: false, message: "Folder not found" });
+    }
+
+    const folderId = folderList.data.files[0].id;
+
+    const filesList = await drive.files.list({
+      q: `'${folderId}' in parents and name contains 'application' and mimeType='application/pdf'`,
+      fields: "files(id, name)"
+    });
+
+    if (!filesList.data.files.length) {
+      return res.status(404).json({ success: false, message: "Application PDF not found" });
+    }
+
+    const file = filesList.data.files[0];
+    const url = `https://drive.google.com/file/d/${file.id}/view`;
+
+    res.json({ success: true, fileUrl: url });
+  } catch (err) {
+    console.error("❌ Error in /myApplication:", err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 });
 

@@ -54,18 +54,71 @@ const generateBotResponse = async (incomingMessageDiv) => {
     }
 }
 
+function getCustomBotResponse(message) {
+    const msg = message.toLowerCase();
+
+    if (msg.includes("chatbot")) {
+        return "I'm your helpful chatbot! Ask me anything about the scholarship or registration process.";
+    }
+    if (msg.includes("hello") || msg.includes("hi")) {
+        return "Hello! How can I assist you today?";
+    }
+    if (msg.includes("help") || msg.includes("support")) {
+        return "Sure! What do you need help with? You can ask about the scholarship, registration, or any other queries.";
+    }
+    if (msg.includes("scholarship") || msg.includes("date") || msg.includes("deadline")) {
+        return "The scholarship application deadline is December 31st. Make sure to submit your application before then!\nTo apply for the scholarship, please visit our registration page.";
+    }
+    if (msg.includes("registration") || msg.includes("apply")) {
+        return "To register for the scholarship, please fill out the registration form on our website. If you have any issues, feel free to ask!";
+    }
+    if (msg.includes("documents") || msg.includes("upload")) {
+        return "You can upload your documents during the registration process. Make sure to have all required documents ready!";
+    }
+    if (msg.includes("payment") || msg.includes("fee")) {
+        return "The scholarship application fee is ₹300. You can make the payment online during the registration process.";
+    }
+    if (msg.includes("status") || msg.includes("check")) {
+        return "To check your application status, please visit the 'My Application' section on our website. You can view your application details there.";
+    }
+    if (msg.includes("contact") || msg.includes("support")) {
+        return "If you need further assistance, you can contact our support team at";
+    }
+    if (msg.includes("syllabus") || msg.includes("exam")) {
+        return "The scholarship exam syllabus includes topics from your current academic curriculum. Make sure to review your subjects thoroughly!\nFor more details, you can refer to the syllabus document available on our website.";
+    }
+    if (msg.includes("thank you") || msg.includes("thanks")) {
+        return "You're welcome! If you have any more questions, feel free to ask. Good luck with your scholarship application!";
+    }
+    // Add more keyword-based responses as needed
+
+    return null; // No custom response, use API
+}
+
 // Handles outgoing messages from user
 const handleOutGoingMessage = (e) => {
-
     e.preventDefault();
     userData.message = messageInput.value.trim();
     messageInput.value = "";
+
     // create and display user message
     const message = `<div class="message-text"></div>`;
     const outgoingMessageDiv = createMessageElement(message, 'user-message');
     outgoingMessageDiv.querySelector(".message-text").textContent = userData.message;
     ChatBody.appendChild(outgoingMessageDiv);
     ChatBody.scrollTo({ top: ChatBody.scrollHeight, behavior: "smooth" });
+
+    // Check for custom response
+    const customResponse = getCustomBotResponse(userData.message);
+    if (customResponse) {
+        const botMsg = `<span class="material-symbols-rounded bot-avatar">smart_toy</span>
+            <div class="message-text">${customResponse}</div>`;
+        const incomingMessageDiv = createMessageElement(botMsg, 'bot-message');
+        ChatBody.appendChild(incomingMessageDiv);
+        ChatBody.scrollTo({ top: ChatBody.scrollHeight, behavior: "smooth" });
+        return;
+    }
+
     setTimeout(() => {
         const message = `<span class="material-symbols-rounded bot-avatar">smart_toy</span>
                     <div class="message-text">
@@ -79,7 +132,7 @@ const handleOutGoingMessage = (e) => {
         ChatBody.scrollTo({ top: ChatBody.scrollHeight, behavior: "smooth" });
         generateBotResponse(incomingMessageDiv);
 
-    }, 600)
+    }, 5000)
 }
 
 
