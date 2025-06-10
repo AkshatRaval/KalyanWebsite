@@ -309,57 +309,6 @@ body {
     text-align: justify;
 }
 
-/* 
-.infoSection {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.infoInnerContainer {
-    
-    width: 50%;
-    margin-bottom: -10px;
-    padding: 20px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    border: none; 
-}
-
-
-.infoInnerContainer h2{
-    font-size: 30px;
-    color: #222;
-    margin-bottom: 20px;
-    /* border-bottom: 3px solid var(--primary-color); 
-    padding-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-
-.infoInnerContainer p {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.8;
-    text-align: justify;
-}
-
-.infoInnerContainer ul{
-    list-style-type: disc;
-    padding-left: 25px;
-}
-
-.infoInnerContainer ul li{
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 12px;
-} */
-
-
 /* ========================= Footer Section ========================= */
 
 footer {
@@ -541,29 +490,20 @@ footer {
         font-size: 13px;
     }
 
-    .bottam-bar p {
-        font-size: 10px;
+    .textArea p{
+        font-size: 15px;
     }
 
-    .infoContainer h2,
-    .goalContainer h2 {
-        font-size: 20px;
+    .textArea h2{
+        font-size: 1.7rem;
+    }
+    .bottam-bar p {
+        font-size: 10px;
     }
 
     .footer-content .logo {
         width: 100px;
         border-radius: 25px;
-    }
-
-
-    .infoContainer p,
-    .goalContainer p {
-        font-size: 13px;
-    }
-
-    .infoContainer ul li,
-    .goalContainer ul li {
-        font-size: 13px;
     }
 
 }
