@@ -34,7 +34,7 @@
             <form id="registrationForm">
 
                 <!-- Step 1: Personal Details -->
-                <div class="form-step active" id="step1">
+                <div class="form-step" id="step1">
                     <h3>Personal & Address Details</h3>
                     <div class="nameBox flex">
                         <label>*First Name: <input type="text" id="firstName" required></label>
@@ -112,9 +112,9 @@
                             </select>
                         </label>
                         <label>*Roll Number: <input type="text" id="rollNumber" required></label>
-                        <label>*9th Standard Percentage: <input type="text" id="ninthMarks" required></label>
-                        <label>*Best Subject: <input type="text" id="bestSubject" required></label>
-                        <label>*Weakest Subject: <input type="text" id="weakestSubject" required></label>
+                        <label>*Last Standered Percentage: <input type="text" id="lastMarks" required></label>
+                        <label>Best Subject: <input type="text" id="bestSubject"></label>
+                        <label>Weakest Subject: <input type="text" id="weakestSubject"></label>
                     </div>
                     <label>*Desired Stream After 10th: <input type="text" id="stream" required
                             placeholder="If not decided type NONE"></label>
@@ -129,20 +129,18 @@
                 </div>
 
                 <!-- Step 3: Document Upload -->
-                <div class="form-step " id="step3">
+                <div class="form-step" id="step3">
                     <h3>Upload Documents</h3>
-                    <label>Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile"
+                    <label>*Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile" required
                             oninput="validateFileSize(this)"></label>
-                    <label>Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile" required
-                            oninput="validateFileSize(this)"></label>
-                    <label>Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" required
+                    <label>*Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile"
+                            required oninput="validateFileSize(this)"></label>
+                    <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" required
                             oninput="validateFileSize(this)"></label>
                     <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
-                            id="incomecertificateFile" required oninput="validateFileSize(this)"></label>
-                    <label>School Bonafide: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="schoolbonafideFile"
-                            required oninput="validateFileSize(this)"></label>
-                    <label>10th Board Hall Ticket: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
-                            id="tenthHallTicketFile" required oninput="validateFileSize(this)"></label>
+                            id="incomecertificateFile" oninput="validateFileSize(this)"></label>
+                    <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
+                            id="schoolbonafideFile" required oninput="validateFileSize(this)"></label>
                     <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile"
                             accept=".pdf,.jpg,.jpeg,.png" oninput="validateFileSize(this)"></label>
                     <p id="file-size-error"></p>
@@ -153,8 +151,26 @@
                 </div>
 
                 <!-- Step 4: Review and Submit -->
-                <div class="form-step " id="step4">
+                <div class="form-step active" id="step4">
                     <h3>Payment for Registration</h3>
+
+                    <p>Registration Fee: ₹300</p>
+                    <p>Payment Gateway: Razorpay</p>
+                    <p>Note: Please ensure all details are correct before proceeding.</p>
+                    <p>By clicking "Final Submit", you agree to the terms and conditions of the scholarship.</p>
+                    <div style="margin: 5px; display: flex;">
+                        <input type="checkbox" id="confirmDetails" required>
+                        <label for="confirmDetails">
+                            <span for="dataConsent">I consent to the collection and processing of my data for registration and scholarship purposes.</span>
+                        </label>
+                    </div>
+                    <div style="margin: 5px; display: flex;">
+                        <input type="checkbox" id="confirmDetails" required>
+                        <label for="confirmDetails">
+                            <span>I confirm that all the details provided above are true and correct to the best of my knowledge.</span>
+                        </label>
+                    </div>
+
                     <!-- Gotta be something -->
                     <div class="buttons">
                         <button type="button" onclick="gotoStep(3)">Previous</button>
