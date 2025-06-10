@@ -588,26 +588,21 @@ footer {
         width: 50px;
         border-radius: 15px;
     }
+    .textArea p{
+        font-size: 10px;
+        line-height: 1.5;
+    }
+    .textArea h2{
+        font-size: 1.2rem;
+    }
+    .photoArea img{
 
+    }
 
     .bottam-bar p {
         font-size: 13px;
     }
 
-    .infoContainer h2,
-    .goalContainer h2 {
-        font-size: 25px;
-    }
-
-    .infoContainer p,
-    .goalContainer p {
-        font-size: 15px;
-    }
-
-    .infoContainer ul li,
-    .goalContainer ul li {
-        font-size: 15px;
-    }
 
 }
 
