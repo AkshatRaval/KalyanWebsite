@@ -15,9 +15,9 @@ function validateStep(currentStep, nextStep) {
         nextStepFunction(nextStep);
     }
 }
+
 function validateDropdown(inputId) {
     const dropdown = document.getElementById(inputId);
-
     if (!dropdown) {
         console.error(`Dropdown with ID '${inputId}' not found.`);
         return false;
@@ -29,7 +29,7 @@ function validateDropdown(inputId) {
         return false;
     }
 
-    dropdown.style.border = ""; // Reset border when valid
+    dropdown.style.border = "";
     return true;
 }
 
@@ -81,7 +81,6 @@ function validateAadhaar(input) {
     }
 }
 
-// ✅ 🟢 Handle Form Submission
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("registrationForm");
 
@@ -90,17 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // ✅ Prevent Form Submission Before Payment
     form.addEventListener("submit", async function (event) {
         if (localStorage.getItem("paymentDone") !== "true") {
             event.preventDefault();
             alert("Payment is required before submitting the form.");
             return;
         }
-    
-        event.preventDefault(); // Prevent default submission
 
-        // ✅ Capture Text Data
+        event.preventDefault();
+
         const formData = new FormData();
         formData.append("firstName", document.getElementById("firstName").value);
         formData.append("middleName", document.getElementById("middleName").value);
@@ -116,25 +113,24 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("pincode", document.getElementById("pincode").value);
         formData.append("schoolName", document.getElementById("schoolName").value);
         formData.append("schoolAddress", document.getElementById("schoolAddress").value);
-        formData.append("schoolCity", document.getElementById("schoolCity").value);
+        formData.append("schoolCity", document.getElementById("cchoolCity").value);
         formData.append("schoolType", document.getElementById("schoolTypes").value);
         formData.append("schoolBoard", document.getElementById("schoolBoard").value);
         formData.append("schoolMedium", document.getElementById("schoolMedium").value);
         formData.append("rollNumber", document.getElementById("rollNumber").value);
-        formData.append("ninthMarks", document.getElementById("ninthMarks").value);
+        formData.append("lastMarks", document.getElementById("lastMarks").value);
         formData.append("bestSubject", document.getElementById("bestSubject").value);
         formData.append("weakestSubject", document.getElementById("weakestSubject").value);
         formData.append("stream", document.getElementById("stream").value);
         formData.append("careerAspirations", document.getElementById("careerAspirations").value);
 
-        // ✅ Capture Files
+        // Files
         const files = [
             { id: "aadhaarFile", key: "aadhaarFile" },
             { id: "photographFile", key: "photographFile" },
             { id: "signatureFile", key: "signatureFile" },
             { id: "incomecertificateFile", key: "incomeCertificateFile" },
             { id: "schoolbonafideFile", key: "schoolBonafideFile" },
-            { id: "tenthHallTicketFile", key: "tenthHallTicketFile" },
             { id: "DisabilityCertificateFile", key: "disabilityCertificateFile" }
         ];
 
@@ -143,14 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (fileInput) formData.append(file.key, fileInput);
         });
 
-        // ✅ Check Duplicate Aadhaar
         const aadhaar = document.getElementById("aadhaar").value;
         try {
-            const checkResponse = await fetch(`http://localhost:3000/api/form/check-duplicate/${aadhaar}`, {
-                method: "GET",
-                headers: { "Content-Type": "application/json" }
-            });
-
+            const checkResponse = await fetch(`http://localhost:3000/api/form/check-duplicate/${aadhaar}`);
             const checkData = await checkResponse.json();
             if (checkData.exists) {
                 alert("🚫 You have already registered. Redirecting to My Application Page.");
@@ -163,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // ✅ Submit Form Data
         try {
             const response = await fetch("http://localhost:3000/api/form/submit", {
                 method: "POST",

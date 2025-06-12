@@ -1,0 +1,101 @@
+ body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: #22223b;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 480px;
+            margin: 48px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(60, 60, 120, 0.12);
+            padding: 36px 32px 32px 32px;
+            text-align: center;
+        }
+        .header-img {
+            width: 100px;
+            margin-bottom: 18px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(60, 60, 120, 0.10);
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #3a3a7c;
+            letter-spacing: 1px;
+        }
+        .quote {
+            font-style: italic;
+            color: #5e60ce;
+            margin: 18px 0 28px 0;
+            font-size: 1.1rem;
+        }
+        form {
+            margin: 28px 0 18px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #3a3a7c;
+        }
+        input[type="number"] {
+            padding: 10px 14px;
+            border: 1px solid #bdbdfc;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 180px;
+            margin-bottom: 18px;
+            outline: none;
+            transition: border 0.2s;
+        }
+        input[type="number"]:focus {
+            border: 1.5px solid #5e60ce;
+        }
+        button[type="submit"] {
+            background: linear-gradient(90deg, #5e60ce 0%, #4361ee 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(60, 60, 120, 0.10);
+            transition: background 0.2s, transform 0.1s;
+        }
+        button[type="submit"]:hover {
+            background: linear-gradient(90deg, #4361ee 0%, #5e60ce 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .thankyou {
+            margin-top: 24px;
+            color: #3a3a7c;
+            font-size: 1.05rem;
+        }
+        .gallery {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 24px 0 0 0;
+        }
+        .gallery img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 8px 18px 8px;
+            }
+            .gallery img {
+                width: 40px;
+                height: 40px;
+            }
+        }

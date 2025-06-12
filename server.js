@@ -78,6 +78,9 @@ app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 app.use("/api/form", require("./routes/form"));
 
+const donateRouter = require('./routes/donate');
+app.use('/', donateRouter);
+
 // ✅ Global Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error("❌ Server Error:", err);
