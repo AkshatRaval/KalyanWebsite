@@ -153,6 +153,8 @@ body {
 
 /* ========================= Mid Section ========================= */
 
+
+
 .midPart {
     width: 100%;
     height: 70%;
@@ -279,7 +281,7 @@ body {
     object-fit: cover;
     border-radius: 18px;
     box-shadow: 0 8px 32px rgba(255, 183, 77, 0.18);
-    border: 4px solid #fff;
+    /* border: 4px solid #fff; */
 }
 
 .textArea {
@@ -490,13 +492,14 @@ footer {
         font-size: 13px;
     }
 
-    .textArea p{
+    .textArea p {
         font-size: 15px;
     }
 
-    .textArea h2{
+    .textArea h2 {
         font-size: 1.7rem;
     }
+
     .bottam-bar p {
         font-size: 10px;
     }
@@ -588,16 +591,20 @@ footer {
         width: 50px;
         border-radius: 15px;
     }
-    .textArea p{
+
+    .textArea p {
         font-size: 10px;
         line-height: 1.5;
     }
-    .textArea h2{
+
+    .textArea {
+        padding: 28px 24px;
+    }
+
+    .textArea h2 {
         font-size: 1.2rem;
     }
-    .photoArea img{
 
-    }
 
     .bottam-bar p {
         font-size: 13px;

@@ -27,6 +27,10 @@ router.get("/registration", (req, res) => {
     res.sendFile(path.join(__dirname, "../views/registration.html"));
 });
 
+router.get("/donationPage", (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/donationPage.html"));
+});
+
 // Export routes
 // router.get("/test", (req, res) => {
 //     res.send("Form route working!");

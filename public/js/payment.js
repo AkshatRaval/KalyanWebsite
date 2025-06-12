@@ -1,7 +1,7 @@
 document.getElementById("pay-btn").addEventListener("click", async () => {
     try {
         // ✅ Step 1: Create Order Request To Backend
-        const response = await fetch("http://localhost:3000/create-order", {
+        const response = await fetch("http://kalyangcg.in/create-order", {
             method: "POST"
         });
 
@@ -22,7 +22,7 @@ document.getElementById("pay-btn").addEventListener("click", async () => {
             handler: async function (response) {
                 try {
                     // ✅ Step 3: Verify Payment on Backend
-                    const confirmPayment = await fetch("http://localhost:3000/confirm-payment", {
+                    const confirmPayment = await fetch("http://kalyangcg.in/confirm-payment", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
