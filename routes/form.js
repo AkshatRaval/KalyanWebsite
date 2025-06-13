@@ -41,8 +41,7 @@ router.post("/submit", upload.any(), async (req, res) => {
       firstName, middleName, lastName, email, mobile,
       whatsapp, aadhaar, fatherIncome, address, city, state,
       pincode, schoolName, schoolAddress, schoolCity,
-      schoolType, schoolBoard, schoolMedium, rollNumber,
-      ninthMarks, bestSubject, weakestSubject, stream,
+      schoolType, schoolBoard, schoolMedium, lastMarks, stream,
       careerAspirations, payment_id
     } = req.body;
 
@@ -51,7 +50,7 @@ router.post("/submit", upload.any(), async (req, res) => {
 
     const payment = await razorpay.payments.fetch(payment_id);
     if (payment.status !== "captured") {
-      return res.status(400).json({ success: false, error: "Payment not verified." });
+      return res.status(400).json({ success: false, error: "Payment not verified."});
     }
 
     const folderResponse = await drive.files.create({
@@ -85,9 +84,7 @@ router.post("/submit", upload.any(), async (req, res) => {
       email, mobile, whatsapp,
       fatherIncome, address, city, state, pincode,
       schoolName, schoolAddress, schoolCity,
-      schoolType, schoolBoard, schoolMedium,
-      rollNumber, ninthMarks, bestSubject,
-      weakestSubject, stream, careerAspirations
+      schoolType, schoolBoard, schoolMedium, lastMarks, stream, careerAspirations
     };
 
     const pdfPath = await generatePDF(userData);

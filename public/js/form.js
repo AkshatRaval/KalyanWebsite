@@ -1,3 +1,12 @@
+const user = localStorage.getItem("user");
+if (user) {
+    console.log("User exists in localStorage", JSON.parse(user));
+} else {
+    console.log("No user found in localStorage");
+    alert("You must be logged in to access this page.");
+    window.location.href = "/login"; // Redirect to login page
+}
+
 function validateStep(currentStep, nextStep) {
     let inputs = document.querySelectorAll(`#step${currentStep} input[required]`);
     let valid = true;
@@ -117,10 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("schoolType", document.getElementById("schoolTypes").value);
         formData.append("schoolBoard", document.getElementById("schoolBoard").value);
         formData.append("schoolMedium", document.getElementById("schoolMedium").value);
-        formData.append("rollNumber", document.getElementById("rollNumber").value);
         formData.append("lastMarks", document.getElementById("lastMarks").value);
-        formData.append("bestSubject", document.getElementById("bestSubject").value);
-        formData.append("weakestSubject", document.getElementById("weakestSubject").value);
         formData.append("stream", document.getElementById("stream").value);
         formData.append("careerAspirations", document.getElementById("careerAspirations").value);
 

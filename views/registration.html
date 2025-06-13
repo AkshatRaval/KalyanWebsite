@@ -9,7 +9,6 @@
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
     <title>Registration Form</title>
 </head>
 
@@ -35,7 +34,7 @@
             <form id="registrationForm">
 
                 <!-- Step 1: Personal Details -->
-                <div class="form-step" id="step1">
+                <div class="form-step active" id="step1">
                     <h3>Personal & Address Details</h3>
                     <div class="nameBox flex">
                         <label>*First Name: <input type="text" id="firstName" required></label>
@@ -112,10 +111,7 @@
                                 <option value="Other">Other</option>
                             </select>
                         </label>
-                        <label>*Roll Number: <input type="text" id="rollNumber" required></label>
                         <label>*Last Standered Percentage: <input type="text" id="lastMarks" required></label>
-                        <label>Best Subject: <input type="text" id="bestSubject"></label>
-                        <label>Weakest Subject: <input type="text" id="weakestSubject"></label>
                     </div>
                     <label>*Desired Stream After 10th: <input type="text" id="stream" required
                             placeholder="If not decided type NONE"></label>
@@ -124,7 +120,7 @@
                     <div class="buttons">
                         <button type="button" onclick="prevStep(1)">Previous</button>
                         <button type="button"
-                            onclick="if(validateDropdown('schoolTypes')) if(validateDropdown('schoolBoard')) if(validateDropdown('schoolMedium')) validateStep(2, 3)">Next</button>
+                            onclick="if(validateDropdown('schoolTypes')) if(validateDropdown('schoolBoard')) if(validateDropdown('schoolMedium')) validateStep(2, 3)"> Next</button>
 
                     </div>
                 </div>
@@ -138,10 +134,10 @@
                             required oninput="validateFileSize(this)"></label>
                     <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" required
                             oninput="validateFileSize(this)"></label>
-                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
-                            id="incomecertificateFile" oninput="validateFileSize(this)"></label>
                     <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
                             id="schoolbonafideFile" required oninput="validateFileSize(this)"></label>
+                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
+                            id="incomecertificateFile" oninput="validateFileSize(this)"></label>
                     <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile"
                             accept=".pdf,.jpg,.jpeg,.png" oninput="validateFileSize(this)"></label>
                     <p id="file-size-error"></p>
@@ -152,7 +148,7 @@
                 </div>
 
                 <!-- Step 4: Review and Submit -->
-                <div class="form-step active" id="step4">
+                <div class="form-step " id="step4">
                     <h3>Payment for Registration</h3>
 
                     <p>Registration Fee: ₹300</p>
@@ -184,7 +180,30 @@
         </div>
     </div>
 
-    <script src="/js/form.js"></script>
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+    <!-- Your Firebase config -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_KEY",
+            authDomain: "yourapp.firebaseapp.com",
+            projectId: "yourapp",
+            storageBucket: "yourapp.appspot.com",
+            messagingSenderId: "SENDER_ID",
+            appId: "APP_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Your custom JS -->
+    <!-- <script src="registration.js"></script> -->
+
+    <script type="module" src="/js/form.js"></script>
     <script src="/js/payment.js"></script>
 </body>
 

@@ -15,7 +15,7 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 const auth = admin.auth();
 const actionCodeSettings = {
-    url: "https://kalyangcg.in/login", // <-- your live domain
+    url: "https://localhost:3000/login", // <-- your live domain
     handleCodeInApp: false
 };
 // 🔹 Secret key for JWT
@@ -57,7 +57,7 @@ router.post("/signup", async (req, res) => {
 
         // ✅ FIXED: Use Firebase Admin SDK to send an email verification link
         const actionCodeSettings = {
-            url: "https://kalyangcg.in/login", // Change this to your actual login page URL
+            url: "https://localhost:3000/login", // Change this to your actual login page URL
             handleCodeInApp: false
         };
         const verificationLink = await auth.generateEmailVerificationLink(email, actionCodeSettings);

@@ -36,28 +36,11 @@
                     <input type="password" placeholder="Password" required id="login-password">
                     <i class='fa-solid fa-lock'></i>
                 </div>
-                <button class="forgotpass" id="forgotPassBtn">
-                    <p>Forgot Password?</p>
-                </button>
+                <a href="/forgotPass" class="forgotPass">Forgot Password?</a>
                 <button type="submit" class="loginButton" id="loginButton">Login</button>
                 <div class="signup" style="text-align: center;">
                     <p>Did not have any account? <span><a href="/signup" style="color: white;">Sign up</a></span></p>
                 </div>
-            </form>
-        </div>
-    </div>
-    <div id="popupWindow" class="not_active">
-        <div class="form-container">
-            <button id="closerBtn"><i class="fa-solid fa-arrow-left"></i></button>
-            <div class="logo-container">
-                <h2>Forgot Password?</h2>
-            </div>
-            <form class="ForgotPassform">
-                <div class="form-group">
-                    <input type="text" id="email" name="email" placeholder="Enter your email" required="">
-                </div>
-
-                <button class="form-submit-btn" type="submit">Send Email</button>
             </form>
         </div>
     </div>
@@ -84,27 +67,6 @@
 
                 await loginUser(email, password);
             });
-        });
-        document.querySelector('.ForgotPassform').addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const email = document.getElementById('email').value.trim();
-            if (!email) {
-                alert('Please enter your email');
-                return;
-            }
-
-            const response = await forgotPassword(email);
-
-            if (!response.success && response.error === "Firebase: Error (auth/user-not-found).") {
-                alert("User does not exist.");
-            }
-        });
-        document.getElementById('forgotPassBtn').addEventListener('click', () => {
-            document.getElementById('popupWindow').classList.toggle('active');
-        });
-        document.getElementById('closerBtn').addEventListener('click', () => {
-            document.getElementById('popupWindow').classList.toggle('active');
         });
     </script>
 
