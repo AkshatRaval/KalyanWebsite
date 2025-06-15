@@ -7,11 +7,11 @@ document.getElementById("pay-btn").addEventListener("click", async function (e) 
     }
 
     // Create order from backend
-    const orderRes = await fetch("/api/create-order", {
+    const orderRes = await fetch("http://localhost:3000/create-order", {
         method: "POST"
     });
-    const rawText = await orderRes.text();
-    console.log(rawText);
+    const orderData = await orderRes.json(); // <-- Add this line
+    console.log(orderData);
 
     const options = {
         key: orderData.key, // Razorpay Key ID
@@ -41,9 +41,9 @@ async function submitForm(paymentId) {
     const form = document.getElementById("registrationForm");
     const formData = new FormData(form);
 
-    formData.append("paymentId", paymentId);
+    formData.append("payment_id", paymentId); // ✅ correct key
 
-    const response = await fetch("/submit-form", {
+    const response = await fetch("http://localhost:3000/api/form/submit", {
         method: "POST",
         body: formData
     });
@@ -51,8 +51,8 @@ async function submitForm(paymentId) {
     const result = await response.json();
     if (result.success) {
         alert("Form submitted successfully!");
-        window.location.href = "/success";
+        window.location.href = "/myApplication";
     } else {
-        alert("Something went wrong. Try again.");
+        alert("Something went wrong: " + result.error);
     }
 }

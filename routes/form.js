@@ -24,6 +24,21 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_SECRET
 });
 
+// Add this route at the bottom of the file
+router.post("/create-order", async (req, res) => {
+  try {
+    const amount = 100; // Amount in paise (₹300)
+    const order = await razorpay.orders.create({
+      amount,
+      currency: "INR",
+      payment_capture: 1
+    });
+    res.json({ key: process.env.RAZORPAY_KEY_ID, order });
+  } catch (error) {
+    res.status(500).json({ error: "Order creation failed" });
+  }
+});
+
 // Google API setup
 const auth = new google.auth.GoogleAuth({
   keyFile: "keyGoogle.json",
@@ -50,7 +65,7 @@ router.post("/submit", upload.any(), async (req, res) => {
 
     const payment = await razorpay.payments.fetch(payment_id);
     if (payment.status !== "captured") {
-      return res.status(400).json({ success: false, error: "Payment not verified."});
+      return res.status(400).json({ success: false, error: "Payment not verified." });
     }
 
     const folderResponse = await drive.files.create({
@@ -101,9 +116,7 @@ router.post("/submit", upload.any(), async (req, res) => {
           aadhaar, userData.name, email, mobile, whatsapp,
           fatherIncome, address, city, state, pincode,
           schoolName, schoolAddress, schoolCity, schoolType,
-          schoolBoard, schoolMedium, rollNumber,
-          ninthMarks, bestSubject, weakestSubject,
-          stream, careerAspirations, fileUrls.join("\n"),
+          schoolBoard, schoolMedium, stream, careerAspirations, fileUrls.join("\n"),
           payment_id, "✅ Paid", pdfUrl
         ]]
       }

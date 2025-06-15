@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("pincode", document.getElementById("pincode").value);
         formData.append("schoolName", document.getElementById("schoolName").value);
         formData.append("schoolAddress", document.getElementById("schoolAddress").value);
-        formData.append("schoolCity", document.getElementById("cchoolCity").value);
+        formData.append("schoolCity", document.getElementById("schoolCity").value);
         formData.append("schoolType", document.getElementById("schoolTypes").value);
         formData.append("schoolBoard", document.getElementById("schoolBoard").value);
         formData.append("schoolMedium", document.getElementById("schoolMedium").value);
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const checkData = await checkResponse.json();
             if (checkData.exists) {
                 alert("🚫 You have already registered. Redirecting to My Application Page.");
-                window.location.href = "/myApplication";
+                window.location.href = "/";
                 return;
             }
         } catch (error) {
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
             if (result.success) {
                 alert("✅ Registration Successful. Redirecting to My Application Page.");
-                window.location.href = "/myApplication";
+                window.location.href = "/";
             } else {
                 alert("❌ Error: " + result.error);
             }

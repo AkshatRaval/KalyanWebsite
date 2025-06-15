@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ Firebase Admin SDK (Prevent Multiple Initializations)
-if (!admin.apps.length) {  
-    admin.initializeApp({ 
+if (!admin.apps.length) {
+    admin.initializeApp({
         credential: admin.credential.cert(credentials)
     });
 }
@@ -36,7 +36,7 @@ console.log("✅ Razorpay Key ID Loaded:", process.env.RAZORPAY_KEY_ID ? "Yes" :
 // ✅ Create Razorpay Order (Fix API Key Issue)
 app.post("/create-order", async (req, res) => {
     const options = {
-        amount: 30000, // ₹300 in paise
+        amount: 100, // ₹300 in paise
         currency: "INR",
         receipt: `order_rcptid_${Date.now()}`, // Dynamic receipt ID
     };
@@ -44,7 +44,7 @@ app.post("/create-order", async (req, res) => {
     try {
         const order = await razorpay.orders.create(options);
         res.json({
-            order, 
+            order,
             key: process.env.RAZORPAY_KEY_ID // ✅ Send API key in response
         });
     } catch (error) {
@@ -77,6 +77,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 app.use("/api/form", require("./routes/form"));
+app.use("/", require("./routes/form"));
 
 const donateRouter = require('./routes/donate');
 app.use('/', donateRouter);
@@ -92,4 +93,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`✅ Server running at http://localhost:${PORT}`);
 });
-

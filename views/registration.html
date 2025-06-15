@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reg.css">
+    <link rel="stylesheet" href="css/reg2.css">
     <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -31,20 +31,20 @@
                 <button onclick="gotoStep(4)" id="btn4">Final Submit</button>
             </div>
 
-            <form id="registrationForm">
+            <form id="registrationForm" enctype="multipart/form-data">
 
                 <!-- Step 1: Personal Details -->
                 <div class="form-step active" id="step1">
                     <h3>Personal & Address Details</h3>
                     <div class="nameBox flex">
-                        <label>*First Name: <input type="text" id="firstName" required></label>
-                        <label>Middle Name: <input type="text" id="middleName"></label>
-                        <label>*Last Name: <input type="text" id="lastName" required></label>
+                        <label>*First Name: <input type="text" id="firstName" name="firstName" required ></label>
+                        <label>Middle Name: <input type="text" id="middleName" name="middleName"></label>
+                        <label>*Last Name: <input type="text" id="lastName" name="lastName" required></label>
                     </div>
                     <div class="mobileAndEmail flex">
-                        <label>*Email: <input type="email" id="email" required></label>
-                        <label>*Mobile Number: <input type="tel" id="mobile" required></label>
-                        <label>Whatsapp Number: <input type="tel" id="Wmobile"></label>
+                        <label>*Email: <input type="email" id="email" name="email" required></label>
+                        <label>*Mobile Number: <input type="tel" id="mobile" name="mobile" required ></label>
+                        <label>Whatsapp Number: <input type="tel" id="Wmobile" name="Wmobile"></label>
                     </div>
                     <div class="aadharInp flex">
                         <label>*Aadhaar Number: <input type="text" id="aadhaar" name="aadhaar" required
@@ -52,7 +52,7 @@
                         <p id="aadhaarError" style="color: red; display: none;">Aadhaar number must be exactly 12
                             digits.</p>
                         <label>Father's Income (Annual):
-                            <select id="fatherIncome" required>
+                            <select id="fatherIncome" required name="fatherIncome">
                                 <option value="default">---select---</option>
                                 <option value="below1L">Below ₹1,00,000</option>
                                 <option value="between1-2d5Lakh">₹1,00,000 - ₹2,50,000</option>
@@ -62,11 +62,11 @@
                             </select>
                         </label>
                     </div>
-                    <div class="addressBox flex">
-                        <label>*Address: <input type="text" id="address" required></label>
-                        <label>*City: <input type="text" id="city" required></label>
-                        <label>*State: <input type="text" id="state" required></label>
-                        <label>*Pincode: <input type="number" id="pincode" required></label>
+                    <div class="addressBox flex" >
+                        <label>*Address: <input type="text" id="address" name="address" required></label>
+                        <label>*City: <input type="text" id="city" name="city" required></label>
+                        <label>*State: <input type="text" id="state" name="state" required></label>
+                        <label>*Pincode: <input type="number" id="pincode" name="pincode" required></label>
                     </div>
                     <div class="buttons">
                         <button type="button"
@@ -78,13 +78,13 @@
                 <div class="form-step " id="step2">
                     <h3>Academic Details</h3>
                     <div class="schoolDetails flex">
-                        <label>*School Name: <input type="text" id="schoolName" required></label>
-                        <label>*School Address: <input type="text" id="schoolAddress" required></label>
-                        <label>*School City <input type="text" id="cchoolCity" required></label>
+                        <label>*School Name: <input type="text" id="schoolName" name="schoolName" required></label>
+                        <label>*School Address: <input type="text" id="schoolAddress" name="schoolAddress" required></label>
+                        <label>*School City <input type="text" id="schoolCity" name="schoolCity" required></label>
                     </div>
                     <div class="moreschoolDetails flex">
                         <label>School Type:
-                            <select id="schoolTypes" required>
+                            <select id="schoolTypes" name="schoolTypes" required>
                                 <option value="default">---select---</option>
                                 <option value="Govt">Government</option>
                                 <option value="hgovt">Half Governmnet</option>
@@ -92,7 +92,7 @@
                             </select>
                         </label>
                         <label>*Board:
-                            <select id="schoolBoard" required>
+                            <select id="schoolBoard" name="schoolBoard" required>
                                 <option value="default">---select---</option>
                                 <option value="GSEB">GSEB</option>
                                 <option value="CBSE">CBSE</option>
@@ -104,23 +104,24 @@
                     <div class="personalAcademicDetails flex">
 
                         <label>*Medium:
-                            <select id="schoolMedium" required>
+                            <select id="schoolMedium" name="schoolMedium" required>
                                 <option value="default">---select---</option>
                                 <option value="gujM">Gujrati</option>
                                 <option value="engM">English</option>
                                 <option value="Other">Other</option>
                             </select>
                         </label>
-                        <label>*Last Standered Percentage: <input type="text" id="lastMarks" required></label>
+                        <label>*Last Standered Percentage: <input type="text" id="lastMarks" name="lastMarks" required></label>
                     </div>
-                    <label>*Desired Stream After 10th: <input type="text" id="stream" required
+                    <label>*Desired Stream After 10th: <input type="text" id="stream" name="stream" required 
                             placeholder="If not decided type NONE"></label>
-                    <label>*Career Aspirations: <input type="text" id="careerAspirations" required
+                    <label>*Career Aspirations: <input type="text" id="careerAspirations" name="careerAspirations" required
                             placeholder="If not decided type NONE"></label>
                     <div class="buttons">
                         <button type="button" onclick="prevStep(1)">Previous</button>
                         <button type="button"
-                            onclick="if(validateDropdown('schoolTypes')) if(validateDropdown('schoolBoard')) if(validateDropdown('schoolMedium')) validateStep(2, 3)"> Next</button>
+                            onclick="if(validateDropdown('schoolTypes')) if(validateDropdown('schoolBoard')) if(validateDropdown('schoolMedium')) validateStep(2, 3)">
+                            Next</button>
 
                     </div>
                 </div>
@@ -128,18 +129,12 @@
                 <!-- Step 3: Document Upload -->
                 <div class="form-step" id="step3">
                     <h3>Upload Documents</h3>
-                    <label>*Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile" required
-                            oninput="validateFileSize(this)"></label>
-                    <label>*Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile"
-                            required oninput="validateFileSize(this)"></label>
-                    <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" required
-                            oninput="validateFileSize(this)"></label>
-                    <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
-                            id="schoolbonafideFile" required oninput="validateFileSize(this)"></label>
-                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
-                            id="incomecertificateFile" oninput="validateFileSize(this)"></label>
-                    <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile"
-                            accept=".pdf,.jpg,.jpeg,.png" oninput="validateFileSize(this)"></label>
+                    <label>*Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile" name="aadhaarFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile" name="photographFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" name="signatureFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="schoolbonafideFile" name="schoolbonafideFile" required oninput="validateFileSize(this)"></label>
+                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="incomecertificateFile" name="incomecertificateFile" oninput="validateFileSize(this)"></label>
+                    <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile" name="DisabilityCertificateFile" accept=".pdf,.jpg,.jpeg,.png" oninput="validateFileSize(this)"></label>
                     <p id="file-size-error"></p>
                     <div class="buttons">
                         <button type="button" onclick="prevStep(2)">Previous</button>
@@ -162,13 +157,6 @@
                                 registration and scholarship purposes.</span>
                         </label>
                     </div>
-                    <div style="margin: 5px; display: flex;">
-                        <input type="checkbox" id="confirmDetails" required>
-                        <label for="confirmDetails">
-                            <span>I confirm that all the details provided above are true and correct to the best of my
-                                knowledge.</span>
-                        </label>
-                    </div>
 
                     <!-- Gotta be something -->
                     <div class="buttons">
@@ -179,31 +167,7 @@
             </form>
         </div>
     </div>
-
-    <!-- Firebase App -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-
-    <!-- Firebase Auth -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-
-    <!-- Your Firebase config -->
-    <script>
-        const firebaseConfig = {
-            apiKey: "YOUR_KEY",
-            authDomain: "yourapp.firebaseapp.com",
-            projectId: "yourapp",
-            storageBucket: "yourapp.appspot.com",
-            messagingSenderId: "SENDER_ID",
-            appId: "APP_ID"
-        };
-
-        firebase.initializeApp(firebaseConfig);
-    </script>
-
-    <!-- Your custom JS -->
-    <!-- <script src="registration.js"></script> -->
-
-    <script type="module" src="/js/form.js"></script>
+    <script src="/js/form.js"></script>
     <script src="/js/payment.js"></script>
 </body>
 
