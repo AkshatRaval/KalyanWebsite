@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ededed;
+    height: auto;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+}
+
+
+
+h2 {
+    font-size: 35px;
+    background: #0099ff;
+    text-align: center;
+    padding: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.297);
+}
+
+.HeaderDetails{
+    font-weight: 800;
+    font-size: 22px;
+    margin: 5px;
+    margin-left: 0;
+}
+.HeaderText{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.Formdetails img {
+    width: 15%;
+    margin-right: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.step-header {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.step-header button {
+    border: none;
+    border: 2px solid #22222278;
+    border-radius: 3px;
+    font-size: 16px;
+    flex: 1;
+    padding: 10px;
+    background: #c5c5c5;
+    cursor: pointer;
+}
+
+.step-header button.active {
+    background: #222222;
+    color: white;
+}
+
+.regContainer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    /* background: #f40000; */
+}
+
+.regBox {
+    z-index: 0;
+    height: 100%;
+    width: 80%;
+    background-color: #fafafa;
+    /* background-image: url(../../assets/background-reg.jpg); */
+    background-position: center;
+    background-size: cover;
+    padding: 25px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.297);
+}
+
+.Formdetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 50px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 15px black;
+    padding: 15px 25px;
+}
+
+.form-step h3 {
+    padding: 10px;
+    text-align: start;
+    font-size: 25px;
+    background: #00b7ff;
+}
+
+.form-step label {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 2px;
+    width: 100%;
+    margin: 15px 5px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-step label input,
+select {
+    flex-wrap: wrap;
+    flex: 1;
+    font-size: 15px;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+#step3 label{
+    margin: 10px 5px;
+    font-size: 18px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttons button{
+    border: none;
+    border:2px solid black;
+    border-radius: 50px;
+    background: #0099ff;
+    width: 15%;
+padding: 15px 25px;
+}
+
+.form-step p{
+
+    font-size: 18px;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+
+/* ========================= Media Queries ========================= */
+
+@media (max-width: 768px) {
+
+    h2{
+        font-size: 25px;
+    }
+
+    .flex{
+        flex-wrap: wrap;
+    }
+    .regBox{
+        padding: 10px;
+        width: 95%;
+    }
+
+    .Formdetails{
+        margin: 10px;
+        margin-bottom: 20px;
+        padding: 12px;
+    }
+
+    .HeaderDetails{
+        font-size: 16px;
+        margin: 5px;
+        margin-left: 0;
+    }
+    .HeaderText{
+        font-size: 10px;
+    }
+    
+    .Formdetails img{
+        width: 20%;
+    }
+
+    .step-header button{
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .form-step h3{
+        font-size: 15px;
+    }
+
+    .form-step label{
+        font-size: 12px;
+        margin: 5px 0px;
+        padding: 5px 10px;
+    }
+
+    #step3 label{
+        margin: 10px 5px;
+        font-size: 15px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-step label input,
+    select{
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .buttons button{
+        font-size: 12px;
+        padding: 10px 15px;
+        width: 25%;
+    }
+    .form-step p{
+        font-size: 15px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .regBox{
+        padding: 5px;
+        width: 100%;
+    }
+
+    .Formdetails{
+        margin: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .HeaderDetails{
+        font-size: 18px;
+        margin: 5px;
+        margin-left: 0;
+    }
+    .HeaderText{
+        font-size: 12px;
+    }
+    
+    #step3 label{
+        margin: 10px 5px;
+        font-size: 15px;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .Formdetails img{
+        width: 25%;
+    }
+
+    .step-header button{
+        font-size: 10px;
+        padding: 3px;
+    }
+
+    .form-step h3{
+        font-size: 15px;
+    }
+
+    .form-step label{
+        font-size: 10px;
+        margin: 5px 0px;
+        padding: 5px 10px;
+    }
+
+    .buttons button{
+        font-size: 10px;
+        padding: 10px 15px;
+        width: 25%;
+    }
+    .form-step label input,
+    select{
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .regBox{
+        padding: 5px;
+        width: 100%;
+    }
+
+    .Formdetails{
+        margin: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .HeaderDetails{
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 0;
+    }
+    .HeaderText{
+        font-size: 8px;
+    }
+    
+    .Formdetails img{
+        width: 30%;
+    }
+
+    .step-header button{
+        font-size: 15px;
+        padding: 3px;
+    }
+
+    .form-step h3{
+        font-size: 12px;
+    }
+
+    .form-step label{
+        font-size: 10px;
+        margin: 5px 0px;
+        padding: 5px 10px;
+    }
+
+
+    .form-step label input,
+    select{
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .regBox{
+        padding: 5px;
+        width: 100%;
+    }
+
+    .Formdetails{
+        margin: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .HeaderDetails{
+        font-size: 12px;
+        margin: 5px;
+        margin-left: 0;
+    }
+    .HeaderText{
+        font-size: 8px;
+    }
+    
+    .Formdetails img{
+        width: 40%;
+    }
+
+    .step-header button{
+        font-size: 12px;
+        padding: 3px;
+    }
+
+    .form-step h3{
+        font-size: 10px;
+    }
+
+    .form-step label{
+        font-size: 8px;
+        margin: 5px 0px;
+        padding: 5px 10px;
+    }
+
+
+    .form-step label input,
+    select{
+        font-size: 8px;
+        padding: 5px 10px;
+    }
+}

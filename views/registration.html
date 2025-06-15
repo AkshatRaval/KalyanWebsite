@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reg2.css">
+    <link rel="stylesheet" href="css/reg.css">
     <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names/" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <title>Registration Form</title>
 </head>
 
 <body>
-    <h2>Registration Form</h2>
+    <h2 class="headingClass">Registration Form</h2>
     <div class="regContainer">
         <div class="regBox">
             <div class="Formdetails">
                 <img src="../assets/scholarshipLogo.jpg" alt="img">
                 <div class="textData" style="flex: 2;">
-                    <p class="HeaderDetails">Your Knowledge is the gateway to your success.</p>
+                    <p class="HeaderData">Genius Challange Gujrat (GCG) Exam</p>
+                    <p class="HeaderQuote">Your Knowledge is the gateway to your success.</p>
                     <p class="HeaderText">By kalyan Educational and Charitable Trust</p>
                 </div>
             </div>
@@ -32,18 +34,17 @@
             </div>
 
             <form id="registrationForm" enctype="multipart/form-data">
-
-                <!-- Step 1: Personal Details -->
+                <!-- Step 1: Person al Details -->
                 <div class="form-step active" id="step1">
-                    <h3>Personal & Address Details</h3>
+
                     <div class="nameBox flex">
-                        <label>*First Name: <input type="text" id="firstName" name="firstName" required ></label>
+                        <label>*First Name: <input type="text" id="firstName" name="firstName" required></label>
                         <label>Middle Name: <input type="text" id="middleName" name="middleName"></label>
                         <label>*Last Name: <input type="text" id="lastName" name="lastName" required></label>
                     </div>
                     <div class="mobileAndEmail flex">
                         <label>*Email: <input type="email" id="email" name="email" required></label>
-                        <label>*Mobile Number: <input type="tel" id="mobile" name="mobile" required ></label>
+                        <label>*Mobile Number: <input type="tel" id="mobile" name="mobile" required></label>
                         <label>Whatsapp Number: <input type="tel" id="Wmobile" name="Wmobile"></label>
                     </div>
                     <div class="aadharInp flex">
@@ -62,24 +63,27 @@
                             </select>
                         </label>
                     </div>
-                    <div class="addressBox flex" >
+                    <div class="addressBox flex">
                         <label>*Address: <input type="text" id="address" name="address" required></label>
                         <label>*City: <input type="text" id="city" name="city" required></label>
                         <label>*State: <input type="text" id="state" name="state" required></label>
                         <label>*Pincode: <input type="number" id="pincode" name="pincode" required></label>
                     </div>
                     <div class="buttons">
-                        <button type="button"
-                            onclick="if(validateDropdown('fatherIncome')) validateStep(1, 2)">Next</button>
+                        <button type="button" onclick="closeForm()"><span
+                                class="material-symbols-outlined">close</span></button>
+                        <button type="button" onclick="if(validateDropdown('fatherIncome')) validateStep(1, 2)"><span
+                                class="material-symbols-outlined">arrow_forward</span></button>
                     </div>
                 </div>
 
                 <!-- Step 2: Academic Details -->
                 <div class="form-step " id="step2">
-                    <h3>Academic Details</h3>
+
                     <div class="schoolDetails flex">
                         <label>*School Name: <input type="text" id="schoolName" name="schoolName" required></label>
-                        <label>*School Address: <input type="text" id="schoolAddress" name="schoolAddress" required></label>
+                        <label>*School Address: <input type="text" id="schoolAddress" name="schoolAddress"
+                                required></label>
                         <label>*School City <input type="text" id="schoolCity" name="schoolCity" required></label>
                     </div>
                     <div class="moreschoolDetails flex">
@@ -111,62 +115,116 @@
                                 <option value="Other">Other</option>
                             </select>
                         </label>
-                        <label>*Last Standered Percentage: <input type="text" id="lastMarks" name="lastMarks" required></label>
+                        <label>*Last Standered Percentage: <input type="text" id="lastMarks" name="lastMarks"
+                                required></label>
                     </div>
-                    <label>*Desired Stream After 10th: <input type="text" id="stream" name="stream" required 
+                    <label>*Desired Stream After 10th: <input type="text" id="stream" name="stream" required
                             placeholder="If not decided type NONE"></label>
-                    <label>*Career Aspirations: <input type="text" id="careerAspirations" name="careerAspirations" required
-                            placeholder="If not decided type NONE"></label>
+                    <label>*Career Aspirations: <input type="text" id="careerAspirations" name="careerAspirations"
+                            required placeholder="If not decided type NONE"></label>
                     <div class="buttons">
-                        <button type="button" onclick="prevStep(1)">Previous</button>
+                        <button type="button" onclick="prevStep(1)"><span
+                                class="material-symbols-outlined">arrow_back</span></button>
                         <button type="button"
                             onclick="if(validateDropdown('schoolTypes')) if(validateDropdown('schoolBoard')) if(validateDropdown('schoolMedium')) validateStep(2, 3)">
-                            Next</button>
+                            <span class="material-symbols-outlined">arrow_forward</span></button>
 
                     </div>
                 </div>
 
                 <!-- Step 3: Document Upload -->
                 <div class="form-step" id="step3">
-                    <h3>Upload Documents</h3>
-                    <label>*Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile" name="aadhaarFile" required oninput="validateFileSize(this)"></label>
-                    <label>*Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile" name="photographFile" required oninput="validateFileSize(this)"></label>
-                    <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile" name="signatureFile" required oninput="validateFileSize(this)"></label>
-                    <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="schoolbonafideFile" name="schoolbonafideFile" required oninput="validateFileSize(this)"></label>
-                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="incomecertificateFile" name="incomecertificateFile" oninput="validateFileSize(this)"></label>
-                    <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile" name="DisabilityCertificateFile" accept=".pdf,.jpg,.jpeg,.png" oninput="validateFileSize(this)"></label>
+
+                    <label>*Aadhaar Card: <input type="file" accept=".pdf,.jpg,.jpeg,.png" id="aadhaarFile"
+                            name="aadhaarFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Passport Size Photo: <input type="file" accept=".jpg,.jpeg,.png" id="photographFile"
+                            name="photographFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Signature: <input type="file" accept=".jpg,.jpeg,.png" id="signatureFile"
+                            name="signatureFile" required oninput="validateFileSize(this)"></label>
+                    <label>*Last Year Marksheet: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
+                            id="schoolbonafideFile" name="schoolbonafideFile" required
+                            oninput="validateFileSize(this)"></label>
+                    <label>Income Certificate: <input type="file" accept=".pdf,.jpg,.jpeg,.png"
+                            id="incomecertificateFile" name="incomecertificateFile"
+                            oninput="validateFileSize(this)"></label>
+                    <label>Disability Certificate (if applicable): <input type="file" id="DisabilityCertificateFile"
+                            name="DisabilityCertificateFile" accept=".pdf,.jpg,.jpeg,.png"
+                            oninput="validateFileSize(this)"></label>
                     <p id="file-size-error"></p>
                     <div class="buttons">
-                        <button type="button" onclick="prevStep(2)">Previous</button>
-                        <button type="button" onclick="validateStep(3, 4)">Next</button>
+                        <button type="button" onclick="prevStep(2)"><span
+                                class="material-symbols-outlined">arrow_back</span></button>
+                        <button type="button" onclick="validateStep(3, 4)"><span
+                                class="material-symbols-outlined">arrow_forward</span></button>
                     </div>
                 </div>
 
                 <!-- Step 4: Review and Submit -->
-                <div class="form-step " id="step4">
-                    <h3>Payment for Registration</h3>
-
-                    <p>Registration Fee: ₹300</p>
-                    <p>Payment Gateway: Razorpay</p>
-                    <p>Note: Please ensure all details are correct before proceeding.</p>
-                    <p>By clicking "Final Submit", you agree to the terms and conditions of the scholarship.</p>
-                    <div style="margin: 5px; display: flex;">
-                        <input type="checkbox" id="confirmDetails" required>
-                        <label for="confirmDetails">
-                            <span for="dataConsent">I consent to the collection and processing of my data for
-                                registration and scholarship purposes.</span>
+                <div class="form-step" id="step4">
+                    <div class="review-section"></div>
+                    <ul class="review-list">
+                        <li><strong>Registration Fee:</strong> <span class="highlight">₹300</span></li>
+                        <li><strong>Payment Gateway:</strong> <span class="highlight">Razorpay</span></li>
+                    </ul>
+                    <div class="review-note">
+                        <p><span class="material-symbols-outlined"
+                                style="vertical-align: middle; color: #ff9800;">info</span>
+                            <strong>Note:</strong> Please ensure all details are correct before proceeding. Once
+                            submitted, changes cannot be made.
+                        </p>
+                    </div>
+                    <div class="terms-section">
+                        <h4>Terms & Conditions</h4>
+                        <ol>
+                            <li>All information provided must be accurate and verifiable. False information may lead to
+                                disqualification.</li>
+                            <li>The registration fee is non-refundable under any circumstances.</li>
+                            <li>Submission of this form does not guarantee selection for the scholarship; selection is
+                                based on eligibility and exam performance.</li>
+                            <li>Personal data will be used solely for registration, exam, and scholarship processing as
+                                per our privacy policy.</li>
+                            <li>By submitting, you agree to abide by the rules and decisions of Kalyan Educational and
+                                Charitable Trust.</li>
+                            <li>Any attempt to manipulate or misuse the registration process will result in cancellation
+                                of your application.</li>
+                        </ol>
+                        <p class="consent-text">
+                            <span class="material-symbols-outlined"
+                                style="vertical-align: middle; color: #388e3c;">check_circle</span>
+                            By clicking "Pay & Submit", you confirm that you have read and agree to the above terms and
+                            consent to the collection and processing of your data for registration and scholarship
+                            purposes.
+                        </p>
+                    </div>
+                    <div class="consent-checkbox" style="margin: 16px 0;">
+                        <label for="confirmDetails"
+                            style="display: flex; flex-direction: row; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="checkbox" id="confirmDetails" name="confirmDetails" required
+                                style="accent-color: #007bff; width: 18px; height: 18px; margin: 0;">
+                            <span style="font-size: 1rem; color: #333;">
+                                I have read and agree to the Terms & Conditions above.
+                            </span>
                         </label>
                     </div>
-
-                    <!-- Gotta be something -->
                     <div class="buttons">
-                        <button type="button" onclick="gotoStep(3)">Previous</button>
-                        <button id="pay-btn">Final Submit</button>
+                        <button type="button" onclick="gotoStep(3)"><span
+                                class="material-symbols-outlined">arrow_back</span></button>
+                        <button id="pay-btn">Pay & Submit</button>
                     </div>
                 </div>
-            </form>
+
+                <!-- Gotta be something -->
         </div>
+        </form>
     </div>
+    </div>
+    <script>
+        const closeForm = () => {
+            if (confirm("Are you sure you want to close the form? All data will be lost.")) {
+                window.location.href = "/";
+            }
+        };
+    </script>
     <script src="/js/form.js"></script>
     <script src="/js/payment.js"></script>
 </body>

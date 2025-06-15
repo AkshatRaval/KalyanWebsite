@@ -1,39 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+}
+
+body,
+html {
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
-    background-color: #ededed;
-    height: auto;
-}
-
-header {
-    width: 100%;
-    height: 50px;
-}
-
-
-
-h2 {
-    font-size: 35px;
-    background: #0099ff;
-    text-align: center;
-    padding: 5px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.297);
-}
-
-.HeaderDetails{
-    font-weight: 800;
-    font-size: 22px;
-    margin: 5px;
-    margin-left: 0;
-}
-.HeaderText{
-    font-size: 15px;
-    font-weight: 400;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
 }
 
 .form-step {
@@ -44,21 +28,76 @@ h2 {
     display: block;
 }
 
-.Formdetails img {
-    width: 15%;
-    margin-right: 20px;
+
+.headingClass {
+    text-align: center;
+    align-self: center;
+    font-size: 2rem;
+    /* margin: 10px; */
+    color: white;
+    padding: 10px 0px;
+    background-color: #2575fc;
 }
 
-.buttons {
-    margin-top: 20px;
+.regContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: auto;
+}
+
+.regBox {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 90%;
+    background: #f7feff;
+    border: 1px solid #fff;
+    margin: 50px auto;
+    border-radius: 15px;
+    box-shadow: 0 0px 12px rgba(255, 255, 255, 0.4);
+    height: 100%;
+    min-height: 600px;
+}
+
+.Formdetails {
+    display: flex;
+    background: #f5feff;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    border-radius: inherit;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: center;
+}
+
+.Formdetails img {
+    width: 12%;
+    margin-right: 50px;
+    border-radius: inherit;
+
+}
+
+.Formdetails .HeaderData {
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.Formdetails .HeaderQuote {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.Formdetails .HeaderText {
+    color: #292929;
 }
 
 .step-header {
-    margin: 10px 0px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 20px 5px;
 }
 
 .step-header button {
@@ -68,333 +107,196 @@ h2 {
     font-size: 16px;
     flex: 1;
     padding: 10px;
-    background: #c5c5c5;
+    margin: 5px;
+    background-color: #fff;
     cursor: pointer;
 }
 
 .step-header button.active {
-    background: #222222;
+    background-color: #222222;
     color: white;
 }
 
-.regContainer {
-    display: flex;
-    justify-content: center;
-    height: 100%;
+
+
+#registrationForm {
+    background: #dffbff79;
+    flex: 1 1 auto;
     width: 100%;
-    /* background: #f40000; */
-}
-
-.regBox {
-    z-index: 0;
-    height: 100%;
-    width: 80%;
-    background-color: #fafafa;
-    /* background-image: url(../../assets/background-reg.jpg); */
-    background-position: center;
-    background-size: cover;
-    padding: 25px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.297);
-}
-
-.Formdetails {
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    margin: 50px;
-    margin-top: 10px;
-    box-shadow: 0px 0px 15px black;
-    padding: 15px 25px;
-}
-
-.form-step h3 {
-    padding: 10px;
-    text-align: start;
-    font-size: 25px;
-    background: #00b7ff;
-}
-
-.form-step label {
-    display: flex;
-    justify-content: center;
-    align-items: start;
     flex-direction: column;
-    padding: 2px;
-    width: 100%;
-    margin: 15px 5px;
+    justify-content: flex-start;
+    min-height: 0;
+    border-radius: 15px;
+    border: 1px solid #00b7ff;
 }
 
+.form-step {
+    height: 100%;
+    border-radius: 5px;
+    padding: 20px;
+
+}
+
+/* Form container */
+#registrationForm {
+    background: #e6f7ff;
+    border-radius: 12px;
+    padding: 32px 24px 24px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    margin-top: 18px;
+}
+
+/* Flex layout for grouped fields */
 .flex {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.form-step label input,
-select {
+    gap: 18px;
     flex-wrap: wrap;
-    flex: 1;
-    font-size: 15px;
-    width: 100%;
-    padding: 5px 20px;
+    margin-bottom: 18px;
 }
 
-#step3 label{
-    margin: 10px 5px;
-    font-size: 18px;
-    flex-direction: row;
-    align-items: center;
+/* Label styling */
+#registrationForm label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #22223b;
+    font-weight: 500;
+    margin-bottom: 10px;
+    flex: 1 1 180px;
+    min-width: 180px;
 }
 
-.buttons{
+/* Input and select styling */
+#registrationForm input[type="text"],
+#registrationForm input[type="email"],
+#registrationForm input[type="tel"],
+#registrationForm input[type="number"],
+#registrationForm input[type="file"],
+#registrationForm select {
+    margin-top: 6px;
+    padding: 10px 12px;
+    border: 1.5px solid #b5c9d6;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fff;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+#registrationForm input[type="file"] {
+    padding: 6px 0;
+}
+
+#registrationForm input:focus,
+#registrationForm select:focus {
+    border-color: #0077d7;
+    outline: none;
+    box-shadow: 0 0 0 2px #b3e0ff;
+}
+
+/* Error message styling */
+#registrationForm p[style*="color: red"] {
+    font-size: 0.95em;
+    margin: 4px 0 0 0;
+}
+
+/* Button styling */
+#registrationForm .buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 18px;
+}
+
+#registrationForm button,
+#registrationForm .buttons button {
+    background: #0077d7;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#registrationForm button:hover,
+#registrationForm .buttons button:hover {
+    background: #005fa3;
+}
+
+#registrationForm input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #0077d7;
+}
+
+
+.review-title {
+    font-size: 1.3rem;
+    color: #2d3a4a;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+    display: flex;
+    gap: 32px;
+}
+
+.review-list li {
+    font-size: 1.08rem;
+    color: #444;
+}
+
+.highlight {
+    color: #1976d2;
+    font-weight: 600;
+}
+
+.review-note {
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 0.98rem;
+    display: flex;
     align-items: center;
 }
-.buttons button{
-    border: none;
-    border:2px solid black;
-    border-radius: 50px;
-    background: #0099ff;
-    width: 15%;
-padding: 15px 25px;
+
+.terms-section {
+    background: #f1f6fa;
+    border-radius: 8px;
+    padding: 16px 18px 10px 18px;
+    margin-bottom: 10px;
+    border-left: 4px solid #1976d2;
 }
 
-.form-step p{
-
-    font-size: 18px;
-    width: 100%;
-    padding: 5px 20px;
+.terms-section h4 {
+    margin-top: 0;
+    color: #1976d2;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
 }
 
-
-/* ========================= Media Queries ========================= */
-
-@media (max-width: 768px) {
-
-    h2{
-        font-size: 25px;
-    }
-
-    .flex{
-        flex-wrap: wrap;
-    }
-    .regBox{
-        padding: 10px;
-        width: 95%;
-    }
-
-    .Formdetails{
-        margin: 10px;
-        margin-bottom: 20px;
-        padding: 12px;
-    }
-
-    .HeaderDetails{
-        font-size: 16px;
-        margin: 5px;
-        margin-left: 0;
-    }
-    .HeaderText{
-        font-size: 10px;
-    }
-    
-    .Formdetails img{
-        width: 20%;
-    }
-
-    .step-header button{
-        font-size: 12px;
-        padding: 5px;
-    }
-
-    .form-step h3{
-        font-size: 15px;
-    }
-
-    .form-step label{
-        font-size: 12px;
-        margin: 5px 0px;
-        padding: 5px 10px;
-    }
-
-    #step3 label{
-        margin: 10px 5px;
-        font-size: 15px;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .form-step label input,
-    select{
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-
-    .buttons button{
-        font-size: 12px;
-        padding: 10px 15px;
-        width: 25%;
-    }
-    .form-step p{
-        font-size: 15px;
-        padding: 5px 10px;
-    }
+.terms-section ol {
+    margin: 0 0 10px 18px;
+    padding-left: 18px;
+    color: #333;
+    font-size: 1.1rem;
 }
 
-@media (max-width: 600px) {
-    .regBox{
-        padding: 5px;
-        width: 100%;
-    }
-
-    .Formdetails{
-        margin: 5px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
-    .HeaderDetails{
-        font-size: 18px;
-        margin: 5px;
-        margin-left: 0;
-    }
-    .HeaderText{
-        font-size: 12px;
-    }
-    
-    #step3 label{
-        margin: 10px 5px;
-        font-size: 15px;
-        flex-direction: row;
-        align-items: center;
-    }
-    
-    .Formdetails img{
-        width: 25%;
-    }
-
-    .step-header button{
-        font-size: 10px;
-        padding: 3px;
-    }
-
-    .form-step h3{
-        font-size: 15px;
-    }
-
-    .form-step label{
-        font-size: 10px;
-        margin: 5px 0px;
-        padding: 5px 10px;
-    }
-
-    .buttons button{
-        font-size: 10px;
-        padding: 10px 15px;
-        width: 25%;
-    }
-    .form-step label input,
-    select{
-        font-size: 10px;
-        padding: 5px 10px;
-    }
+.consent-text {
+    margin-top: 8px;
+    color: #388e3c;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-@media (max-width: 480px) {
-    .regBox{
-        padding: 5px;
-        width: 100%;
-    }
-
-    .Formdetails{
-        margin: 5px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
-    .HeaderDetails{
-        font-size: 14px;
-        margin: 5px;
-        margin-left: 0;
-    }
-    .HeaderText{
-        font-size: 8px;
-    }
-    
-    .Formdetails img{
-        width: 30%;
-    }
-
-    .step-header button{
-        font-size: 15px;
-        padding: 3px;
-    }
-
-    .form-step h3{
-        font-size: 12px;
-    }
-
-    .form-step label{
-        font-size: 10px;
-        margin: 5px 0px;
-        padding: 5px 10px;
-    }
-
-
-    .form-step label input,
-    select{
-        font-size: 10px;
-        padding: 5px 10px;
-    }
-}
-
-@media (max-width: 360px) {
-    .regBox{
-        padding: 5px;
-        width: 100%;
-    }
-
-    .Formdetails{
-        margin: 5px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
-    .HeaderDetails{
-        font-size: 12px;
-        margin: 5px;
-        margin-left: 0;
-    }
-    .HeaderText{
-        font-size: 8px;
-    }
-    
-    .Formdetails img{
-        width: 40%;
-    }
-
-    .step-header button{
-        font-size: 12px;
-        padding: 3px;
-    }
-
-    .form-step h3{
-        font-size: 10px;
-    }
-
-    .form-step label{
-        font-size: 8px;
-        margin: 5px 0px;
-        padding: 5px 10px;
-    }
-
-
-    .form-step label input,
-    select{
-        font-size: 8px;
-        padding: 5px 10px;
-    }
-}
