@@ -300,3 +300,210 @@ body {
     gap: 6px;
 }
 
+@media screen and (max-width: 1200px) {
+    .Formdetails img {
+        width: 18%;
+        margin-right: 30px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 2rem;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 1rem;
+    }
+
+    .step-header button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .Formdetails img {
+        width: 20%;
+        margin-right: 20px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 1.8rem;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 0.9rem;
+    }
+
+    .step-header button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 0.95rem;
+    }
+    
+}
+@media screen and (max-width: 790px) {
+    .Formdetails img {
+        width: 20%;
+        margin-right: 20px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 1.5rem;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 0.7rem;
+    }
+    .Formdetails .HeaderText {
+        font-size: 0.6rem;
+    }
+
+    .step-header button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 0.90rem;
+    }
+    
+    
+}
+
+@media screen and (max-width: 746px) {
+    .Formdetails img {
+        width: 25%;
+        margin-right: 10px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 1.2rem;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 0.6rem;
+    }
+    
+    .Formdetails .HeaderText {
+        font-size: 0.5rem;
+    }
+
+    .step-header button {
+        font-size: 10px;
+        padding: 6px;
+    }
+    #registrationForm label {
+        font-size: 0.8rem;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 0.85rem;
+    }
+    
+}
+
+@media screen and (max-width: 642px) {
+    .Formdetails img {
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 0.98em;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 0.5rem;
+    }
+    
+    .Formdetails .HeaderText {
+        font-size: 0.4rem;
+    }
+
+    .step-header button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 0.80rem;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    .Formdetails img {
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    .Formdetails .HeaderData {
+        font-size: 0.9em;
+    }
+
+    .Formdetails .HeaderQuote {
+        font-size: 0.55rem;
+    }
+    
+    .Formdetails .HeaderText {
+        font-size: 0.5rem;
+    }
+
+    .step-header button {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"],
+    #registrationForm input[type="tel"],
+    #registrationForm input[type="number"],
+    #registrationForm select {
+        font-size: 0.75rem;
+    }
+    .step-header {
+
+        flex-direction: column;
+        align-items: center;
+    }   
+
+    .step-header button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #registrationForm {
+        padding: 10px;
+    }
+    .form-step {
+        padding: 10px;
+    }
+}

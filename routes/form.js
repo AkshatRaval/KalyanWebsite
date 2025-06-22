@@ -102,7 +102,9 @@ router.post("/submit", upload.any(), async (req, res) => {
       schoolType, schoolBoard, schoolMedium, lastMarks, stream, careerAspirations
     };
 
-    const pdfPath = await generatePDF(userData);
+    const photoDriveUrl = fileUrls[1] || "";
+    const photoUrl = photoDriveUrl ? getDirectDriveUrl(photoDriveUrl) : "";
+    const pdfPath = await generatePDF(userData, photoUrl);
     const pdfUrl = await uploadFileToDrive(pdfPath, `${aadhaar}_application.pdf`, folderId);
     fs.unlinkSync(pdfPath);
 
@@ -172,5 +174,14 @@ router.get("/myApplication/:aadhaar", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
+
+function getDirectDriveUrl(viewUrl) {
+  const match = viewUrl.match(/\/d\/([^/]+)\//);
+  if (match) {
+    return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+  }
+  return "";
+}
+
 
 module.exports = router;
