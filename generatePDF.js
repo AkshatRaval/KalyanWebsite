@@ -28,7 +28,8 @@ async function generatePDF(data, photoUrl) {
     : photoUrl;
 
   // ✅ Watermark logo (ensure correct path and extension)
-  const logoPath = path.join(__dirname, "public/assets/kalyanLogo.jpg");
+  const logoPath = path.join(__dirname, "./public/assets/kalyanLogo.jpg");
+  console.log("Logo exists:", fs.existsSync(logoPath), logoPath);
   const logoBase64 = fs.existsSync(logoPath)
     ? fs.readFileSync(logoPath).toString("base64")
     : "";
@@ -179,33 +180,6 @@ async function generatePDF(data, photoUrl) {
 function field(label, value) {
   return `<div class="field"><span>${label}:</span> ${value || "N/A"}</div>`;
 }
-const logoPath = path.join(__dirname, "../public/assets/kalyanLogo.jpg");
-console.log("Logo exists:", fs.existsSync(logoPath), logoPath);
-// if (require.main === module) {
-//   (async () => {
-//     const testData = {
-//       aadhaar: "123456789012",
-//       name: "Test User",
-//       email: "test@example.com",
-//       mobile: "9876543210",
-//       whatsapp: "9876543210",
-//       fatherIncome: "2-5 Lakh",
-//       address: "123 Main St, City",
-//       schoolName: "ABC School",
-//       schoolAddress: "456 School Rd",
-//       schoolCity: "Ahmedabad",
-//       schoolType: "Private",
-//       schoolBoard: "CBSE",
-//       schoolMedium: "English",
-//       lastMarks: "92%",
-//       stream: "Science",
-//       careerAspirations: "Engineer"
-//     };
-//     // Use a sample image URL or leave blank for no photo
-//     const samplePhoto = "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
-//     const pdfPath = await generatePDF(testData, samplePhoto);
-//     console.log("PDF generated at:", pdfPath);
-//   })();
-// }
+
 
 module.exports = generatePDF;

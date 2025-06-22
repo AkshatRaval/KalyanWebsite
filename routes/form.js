@@ -175,6 +175,49 @@ router.get("/myApplication/:aadhaar", async (req, res) => {
   }
 });
 
+// GET route to fetch user data by Aadhaar
+router.get("/user/:aadhaar", async (req, res) => {
+  const { aadhaar } = req.params;
+
+  try {
+    const sheet = await sheets.spreadsheets.values.get({
+      spreadsheetId: SHEET_ID,
+      range: "Sheet1"
+    });
+
+    const rows = sheet.data.values;
+    if (!rows || rows.length === 0) {
+      return res.json({ success: false, message: "No data found" });
+    }
+
+    const headers = rows[0];
+    const targetIndex = headers.indexOf("aadhaar");
+
+    if (targetIndex === -1) {
+      return res.json({ success: false, message: "Aadhaar column not found" });
+    }
+
+    const userRow = rows.find((row, index) => index !== 0 && row[targetIndex] === aadhaar);
+
+    if (!userRow) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    const user = {};
+    headers.forEach((key, i) => {
+      user[key] = userRow[i] || "";
+    });
+
+    return res.json({ success: true, user });
+
+  } catch (err) {
+    console.error("❌ Error in /user/:aadhaar:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+
+
+
 function getDirectDriveUrl(viewUrl) {
   const match = viewUrl.match(/\/d\/([^/]+)\//);
   if (match) {

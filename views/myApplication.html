@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Application</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700&display=swap">
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            padding: 32px 28px 24px 28px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0077d7;
+            margin-bottom: 18px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+
+        .info-table th,
+        .info-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        .info-table th {
+            background: #f0f6fa;
+            color: #0077d7;
+            font-weight: 600;
+            width: 38%;
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .actions {
+            text-align: right;
+            margin-top: 24px;
+        }
+
+        .print-btn {
+            background: #0077d7;
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #005fa3;
+        }
+
+        @media print {
+            .actions {
+                display: none;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+    <script>
+        // Redirect if not registered
+        let aadhaar = localStorage.getItem("aadhaar");
+        if (!localStorage.getItem("user")) {
+            alert("You are not logged in. Redirecting to login page.");
+            window.location.href = "/login";
+        } else if (!aadhaar) {
+            alert("User is not registered. Redirecting to registration page.");
+            window.location.href = "/registration";
+        }
+        // Helper to safely get value or show N/A
+        function safe(val) {
+            return val && val !== "undefined" && val !== "null" ? val : "N/A";
+        }
+
+        // Get Aadhaar from localStorage or prompt user
+
+        // Fetch user data from backend and fill table
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch(`/user/${aadhaar}`)
+                .then(res => res.json())
+                .then(result => {
+                    if (!result.success) {
+                        alert("User not found. Redirecting to registration.");
+                        window.location.href = "/registration";
+                        return;
+                    }
+                    const user = result.user;
+                    function getField(key) { return safe(user[key] || ""); }
+                    document.getElementById("userInfo").innerHTML = `
+                        <tr><th>Full Name</th><td>${getField("name")}</td></tr>
+                        <tr><th>Email</th><td>${getField("email")}</td></tr>
+                        <tr><th>Mobile</th><td>${getField("mobile")}</td></tr>
+                        <tr><th>WhatsApp</th><td>${getField("whatsapp")}</td></tr>
+                        <tr><th>Aadhaar Number</th><td>${getField("aadhaar")}</td></tr>
+                        <tr><th>Father's Income</th><td>${getField("fatherIncome")}</td></tr>
+                        <tr><th>Address</th><td>${getField("address")}</td></tr>
+                        <tr><th>City</th><td>${getField("city")}</td></tr>
+                        <tr><th>State</th><td>${getField("state")}</td></tr>
+                        <tr><th>Pincode</th><td>${getField("pincode")}</td></tr>
+                        <tr><th>School Name</th><td>${getField("schoolName")}</td></tr>
+                        <tr><th>School Address</th><td>${getField("schoolAddress")}</td></tr>
+                        <tr><th>School City</th><td>${getField("schoolCity")}</td></tr>
+                        <tr><th>School Type</th><td>${getField("schoolType")}</td></tr>
+                        <tr><th>Board</th><td>${getField("schoolBoard")}</td></tr>
+                        <tr><th>Medium</th><td>${getField("schoolMedium")}</td></tr>
+                        <tr><th>Desired Stream After 10th</th><td>${getField("stream")}</td></tr>
+                        <tr><th>Career Aspirations</th><td>${getField("careerAspirations")}</td></tr>
+                    `;
+                });
+        });
+
+        // Print function
+        function printApplication() {
+            window.print();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>My Application</h2>
+        <table class="info-table">
+            <tbody id="userInfo">
+                <!-- User info will be injected here -->
+            </tbody>
+        </table>
+        <div class="actions">
+            <button class="print-btn" onclick="printApplication()">Print Application</button>
+        </div>
+    </div>
+</body>
+
+</html>

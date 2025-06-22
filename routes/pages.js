@@ -31,6 +31,10 @@ router.get("/donationPage", (req, res) => {
     res.sendFile(path.join(__dirname, "../views/donationPage.html"));
 });
 
+router.get("/myApplication", (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/myApplication.html"));
+});
+
 // Export routes
 // router.get("/test", (req, res) => {
 //     res.send("Form route working!");

@@ -50,6 +50,7 @@ async function submitForm(paymentId) {
 
     const result = await response.json();
     if (result.success) {
+        localStorage.setItem("isRegistered", "true"); // <-- Add this line
         alert("Form submitted successfully!");
         window.location.href = "/myApplication";
     } else {
