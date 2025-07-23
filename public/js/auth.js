@@ -9,6 +9,17 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
+
+
+function showCustomAlert(message) {
+    document.getElementById("customAlertMsg").textContent = message;
+    document.getElementById("customAlert").classList.remove("hidden");
+}
+
+function closeCustomAlert() {
+    document.getElementById("customAlert").classList.add("hidden");
+}
+
 /* 🔹 User Signup with Firestore */
 async function signUpUser(name, email, password) {
     try {
@@ -20,11 +31,11 @@ async function signUpUser(name, email, password) {
 
         // 🔹 Send email verification
         await sendEmailVerification(user);
-        alert("Verification email sent! Please check your inbox before logging in.");
+        showCustomAlert("Verification email sent! Please check your inbox before logging in.");
         window.location.href = "/login";
     } catch (error) {
         console.error("Signup Error:", error.message);
-        alert(error.message);
+        showCustomAlert(error.message);
     }
 }
 
@@ -35,7 +46,7 @@ async function loginUser(email, password) {
         const user = userCredential.user;
 
         if (!user.emailVerified) {
-            alert("Please verify your email before logging in.");
+            showCustomAlert("Please verify your email before logging in.");
             return;
         }
 
@@ -46,12 +57,12 @@ async function loginUser(email, password) {
         // Store authentication data
         localStorage.setItem("user", JSON.stringify({ email: user.email, uid: user.uid, name: userData.name }));
 
-        alert("Login successful!");
+        showCustomAlert("Login successful!");
         window.location.href = "/profile";
 
     } catch (error) {
         console.error("Login Error:", error);
-        alert("Something went wrong. Please try again.");
+        showCustomAlert("Something went wrong. Please try again.");
     }
 }
 
@@ -62,7 +73,7 @@ async function resetPassword() {
         const user = auth.currentUser;
 
         if (!user) {
-            alert("No user is currently logged in.");
+            showCustomAlert("No user is currently logged in.");
             return;
         }
 
@@ -71,20 +82,20 @@ async function resetPassword() {
         await sendPasswordResetEmail(auth, email);
 
         // ✅ 3. Success Message
-        alert(`Password reset email sent to: ${email}`);
+        showCustomAlert(`Password reset email sent to: ${email}`);
     } catch (error) {
         console.error("Password Reset Error:", error.message);
-        alert("Failed to send password reset email: " + error.message);
+        showCustomAlert("Failed to send password reset email: " + error.message);
     }
 }
 async function forgotPassword(email) {
     try {
         await sendPasswordResetEmail(auth, email);
-        alert(`Password reset email sent to ${email}`);
+        showCustomAlert(`Password reset email sent to ${email}`);
         return { success: true };  // ✅ Returns success status
     } catch (error) {
         console.error("Forgot Password Error:", error.message);
-        alert("Failed to send password reset email: " + error.message);
+        showCustomAlert("Failed to send password reset email: " + error.message);
         return { success: false, error: error.message };  // ✅ Returns error object
     }
 }

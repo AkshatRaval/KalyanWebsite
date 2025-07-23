@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <title>Home | Kalyan</title>
+
+</head>
+
+<body>
+    <button id="chatbot-toggler">
+        <span class="material-symbols-rounded">comment</span>
+    </button>
+
+
+    <div class="chatbot-popup">
+        <div class="chat-header">
+            <div class="header-info">
+                <span class="material-symbols-rounded chatbot-logo">smart_toy</span>
+                <h2 class="logo-text">
+                    Chatbot
+                </h2>
+            </div>
+            <button class="material-symbols-rounded" id="closeBtn">keyboard_arrow_down</button>
+        </div>
+
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message message">
+                <span class="material-symbols-rounded bot-avatar">smart_toy</span>
+                <div class="message-text">
+                    ðŸ‘‹ Hi! I am a Chatbot.<br>How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-footer">
+            <form action="#" class="chatForm">
+                <input placeholder="Message..." class="message-input" required></input>
+                <div class="chat-controls">
+                    <button class="material-symbols-rounded" type="submit" id="sendBtn">send</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <ul class="navContainer">
+            <!-- <div class="logo">
+                <img src="/assets/kalyanlogo.png" alt="logo">
+            </div> -->
+            <div class="navbar_list">
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href="#">Registration</a>
+                    <ul class="dropdown">
+                        <li><a href="/registration">Apply</a></li>
+                        <li><a href="/myApplication">My Application</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Download</a>
+                    <ul class="dropdown">
+                        <li><a href="/assets/files/GCG Exam Course Details.pdf" download="Syllabus.pdf">Syllabus</a>
+                        </li>
+                        <li><a id="auditReport" onclick="auditReport()" style="cursor: pointer;">Audit Report</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about">About</a></li>
+            </div>
+            <div class="loginSetup">
+                <a href="/login">
+                    <button class="loginButton button" id="loginBtn">Login</button>
+                </a>
+                <a href="/profile" id="profileBtn" style="display: none;">Profile</a>
+            </div>
+        </ul>
+    </nav>
+
+    <section class="midPart">
+        <div class="image-container">
+            <div class="sideText">
+                <p>"Education is the most powerful tool you can use to change your future. A scholarship is not just
+                    financial aidâ€”it is a symbol of belief in your potential, a gateway to endless opportunities, and
+                    a
+                    reminder that hard work, dedication, and passion can open doors you never imagined. Keep striving,
+                    keep learning, and never stop believing in yourself, because every great journey begins with the
+                    courage to take the first step. Your dreams are within reachâ€”go claim them!"</p>
+                <button id="applyButton button">
+                    <a href="/registration">
+                        Apply Now
+                    </a>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="homeSec">
+        <div class="row">
+
+
+
+            <!-- Updates -->
+            <div class="detailContainerNew">
+                <div class="detailsheader">
+                    <h3>Updates</h3>
+                </div>
+                <div class="detailBody scrollBox" id="updateList"></div>
+            </div>
+            <!-- Donors -->
+            <div class="detailContainerNew">
+                <div class="detailsheader">
+                    <h3>Donor names</h3>
+                </div>
+                <div class="detailBody scrollBox" id="donorList"></div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section class="infoSection">
+        <div class="aboutUsContainer infoInnnerContainer">
+            <div class="photoArea" style="background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);">
+                <img src="assets/AboutUs.jpg" alt="Kalyan Team">
+            </div>
+            <div class="textArea" style="background: linear-gradient(-90deg, #fff 80%, #fffbe6 100%);">
+                <h2 style="color: #ff9800;">About Us</h2>
+                <p>
+                    Kalyan Educational And Charitable Trust is a non-profit that provides scholarships, resources, and
+                    mentorship to help students succeed. Founded in 2017, we aim to empower youth from all backgrounds
+                    by supporting their education and creating equal opportunities for academic and personal growth.
+                </p>
+            </div>
+        </div>
+        <div class="infoContainer infoInnnerContainer" style="">
+            <div class="textArea" style="background: linear-gradient(90deg, #fff 80%, #e0f7fa 100%);">
+                <h2 style="color: #00bcd4;">
+                    Our Vision</h2>
+                <p>
+                    Our vision is to empower students by providing them with the knowledge, skills, and opportunities
+                    they need to reach their fullest potential. We believe that education is the foundation for personal
+                    and societal growth. By supporting students at every step of their academic journey, we strive to
+                    create a future where every individual has the resources and encouragement to pursue their dreams
+                    and contribute meaningfully to the world.
+                </p>
+            </div>
+            <div class="photoArea" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <img src="assets/OurVision.jpg" alt="Our Vision">
+            </div>
+        </div>
+        <div class="goalContainer infoInnnerContainer">
+            <div class="photoArea" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
+                <img src="assets/OurMission.jpg" alt="Our Goal" style="box-shadow: 0 8px 32px rgba(171,193,238,0.18);">
+            </div>
+            <div class="textArea" style="background: linear-gradient(-90deg, #fff 80%, #f3e5f5 100%);">
+                <h2 style="color: #7b1fa2;">Our Goal</h2>
+                <p>
+                    Our goal is to create a nurturing and inclusive environment where students can thrive academically,
+                    socially, and personally. We aim to inspire a lifelong love of learning, foster critical thinking,
+                    and encourage students to pursue their passions. By offering scholarships and educational programs,
+                    we strive to remove financial barriers and open doors to endless possibilities for our students'
+                    futures.
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+        <div class="FooterContainer">
+            <div class="footer-content">
+                <h3>Kalyan</h3>
+                <div class="centerDiv">
+                    <img src="assets/kalyanLogo.jpg" alt="logo" class="logo">
+                </div>
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <div class="centerDiv columnFlex">
+
+                    <p><strong>Email:</strong> kalyanconsultancy6800@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 99989 06800</p>
+                    <p><strong>Address:</strong> 3rd Floor - Rajkamal Complex, Juni GEB Office, Wankaner - 363621</p>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <h3>Follow us</h3>
+                <ul class="social-icons">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/kalyan_trust_2017"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/@kalyaninspiration"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottam-bar">
+            <p>&copy; 2025 Kalyan Educational And Cheritable Trust. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+    <script src="/js/chatbot.js"></script>
+</body>
+
+</html>

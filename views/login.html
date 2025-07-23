@@ -20,6 +20,7 @@
         }
     </style>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/forgotPass.css">
 </head>
 
@@ -45,7 +46,25 @@
         </div>
     </div>
 
+    <!-- Custom Alert -->
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="custom-alert-box">
+            <p id="customAlertMsg">Default message</p>
+            <button onclick="closeCustomAlert()">OK</button>
+        </div>
+    </div>
+
     <script type="module">
+        function showCustomAlert(message) {
+            document.getElementById("customAlertMsg").textContent = message;
+            document.getElementById("customAlert").classList.remove("hidden");
+        }
+
+        function closeCustomAlert() {
+            document.getElementById("customAlert").classList.add("hidden");
+        }
+
+
         import { loginUser, forgotPassword } from "./js/auth.js";
         document.addEventListener("DOMContentLoaded", () => {
             const loginForm = document.getElementById("login-form");
@@ -61,7 +80,7 @@
                 const password = document.getElementById("login-password").value.trim();
 
                 if (!email || !password) {
-                    alert("Please enter both email and password.");
+                    showCustomAlert("Please enter both email and password.");
                     return;
                 }
 

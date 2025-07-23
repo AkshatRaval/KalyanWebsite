@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="assets/kalyanlogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/custom.css">
     <title>Home | Kalyan</title>
 
 </head>
@@ -38,7 +39,7 @@
             <div class="bot-message message">
                 <span class="material-symbols-rounded bot-avatar">smart_toy</span>
                 <div class="message-text">
-                    👋 Hi! I am a Chatbot.<br>How can I help you today?
+                    ðŸ‘‹ Hi! I am a Chatbot.<br>How can I help you today?
                 </div>
             </div>
         </div>
@@ -54,327 +55,412 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <ul class="navContainer">
-            <!-- <div class="logo">
-                <img src="/assets/kalyanlogo.png" alt="logo">
-            </div> -->
-            <div class="navbar_list">
+    <nav class="navbar darkCarbon">
+        <div class="navContainer">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar_list" id="navbarList">
                 <li><a href="/">Home</a></li>
-                <li>
-                    <a href="#">Registration</a>
+
+                <li class="has-dropdown">
+                    <a href="#" class="toggle-submenu">
+                        Registration
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
                     <ul class="dropdown">
-                        <li><a href="/registration">Apply</a></li>
-                        <li><a href="/myApplication">My Application</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Download</a>
-                    <ul class="dropdown">
-                        <li><a href="/assets/files/GCG Exam Course Details.pdf" download="Syllabus.pdf">Syllabus</a>
+                        <li>
+                            <a href="/registration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                                Apply
+                            </a>
                         </li>
-                        <li><a id="auditReport" onclick="auditReport()" style="cursor: pointer;">Sample Papers</a></li>
+                        <li>
+                            <a href="/myApplication">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                My Application
+                            </a>
+                        </li>
                     </ul>
                 </li>
+
+                <li class="has-dropdown">
+                    <a href="#" class="toggle-submenu">
+                        Download
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
+                    <ul class="dropdown">
+                        <li>
+                            <a href="/assets/files/GCG Exam Course Details.pdf" download="Syllabus.pdf">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7,10 12,15 17,10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Syllabus
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="auditReport" onclick="auditReport()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                                Audit Report
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li><a href="/about">About</a></li>
-                <li><a href="/donationPage">Donate Here</a></li>
-                
-            </div>
+            </ul>
+
             <div class="loginSetup">
-                <a href="/login">
-                    <button class="loginButton button" id="loginBtn">Login</button>
+                <a href="/login" id="loginLink">
+                    <button class="loginButton" id="loginBtn">Login</button>
                 </a>
-                <a href="/profile" id="profileBtn" style="display: none;">Profile</a>
+                <a href="/profile" id="profileBtn" class="profile-link" style="display: none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
+                </a>
             </div>
-        </ul>
+        </div>
     </nav>
 
-    <section class="midPart">
-        <div class="image-container">
-            <div class="sideText">
-                <p>"Education is the most powerful tool you can use to change your future. A scholarship is not just
-                    financial aid—it is a symbol of belief in your potential, a gateway to endless opportunities, and a
-                    reminder that hard work, dedication, and passion can open doors you never imagined. Keep striving,
-                    keep learning, and never stop believing in yourself, because every great journey begins with the
-                    courage to take the first step. Your dreams are within reach—go claim them!"</p>
-                <button id="applyButton button">
-                    <a href="/registration">
-                        Apply Now
-                    </a>
-                </button>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Unlock Your Future with Our Scholarship</h1>
+                <p>Apply now to claim your financial aid and wear your success with pride.</p>
+                <a href="#registration" class="btn btn-primary">Apply Now</a>
             </div>
         </div>
     </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Scholarship?</h2>
+            <div class="features-flex">
+                <div class="feature-item">
+                    <i class="fa-solid fa-hand-holding-dollar fa-3x"></i>
+                    <h3>Financial Support</h3>
+                    <p>Get essential funds to support your education without stress.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-trophy fa-3x"></i>
+                    <h3>Recognized Achievement</h3>
+                    <p>Boost your resume and academic profile with this prestigious award.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-rocket fa-3x"></i>
+                    <h3>Fast & Easy Application</h3>
+                    <p>Quick online process designed for hassle-free submission.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-globe fa-3x"></i>
+                    <h3>Open to All Students</h3>
+                    <p>No barriers, all eligible students can apply and compete fairly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section class="homeSec">
         <div class="row">
-            <div class="detailContainerNew">
-                <div class="detailsheader">
-                    <h3>Donor names</h3>
-                </div>
-                <div class="detailBody">
-                    <div class="updatesSection">
-                        <marquee direction="up" height="300" scrollamount="3">
-                            <table border="0">
-                                <tbody>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Hareshbhai Patel : </strong> 8100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Gauravbhai Jani : </strong> 3100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Bhaveshbhai Kumkhaniya : </strong> 3100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Parbatbhai Ughreja : </strong> 3100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Akshatbhai Raval : </strong> 3100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Devdeepsinh Zala : </strong> 3100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Ghanshyambhai Dharajiya : </strong> 3000₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Yashrajsinh Jadeja : </strong> 3000₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Niravbhai Bhatt : </strong> 3000₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Harshbhai Sarola : </strong> 2100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Shree Dipakbhai Adgama :</strong> 2100₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </marquee>
-                    </div>
-                </div>
-            </div>
-            <div class="detailContainerNew">
-                <div class="detailsheader">
-                    <h3>Expenditures</h3>
-                </div>
-                <div class="detailBody">
-                    <div class="updatesSection">
-                        <marquee direction="up" height="300" scrollamount="3">
-                            <table border="0">
-                                <tbody>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Certificates for 12A and 80G</strong> 17500₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Website VPS Hosting</strong> 8300₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>Website Domain Name</strong> 3500₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                <strong>CA Audit Fees</strong> 7500₹
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </marquee>
-                    </div>
-                </div>
-            </div>
+            <!-- Updates -->
             <div class="detailContainerNew">
                 <div class="detailsheader">
                     <h3>Updates</h3>
                 </div>
-                <div class="detailBody">
-                    <div class="updatesSection">
-                        <marquee direction="up" height="300" scrollamount="5">
-                            <table border="0">
-                                <tbody>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                Due to remaining students: For Academic Year 2024-25 Filling Post Metric
-                                                Scholarship Forms on Digital Gujarat Portal For SC Students remain
-                                                re-open from 17/03/2025 to 26/03/2025
-                                            </span>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="detailsParagraph">
-                                            <i class="fas fa-hand-point-right"></i>
-                                            <span>
-                                                Due to remaining students: For Academic Year 2024-25 Filling Post Metric
-                                                Scholarship Forms on Digital Gujarat Portal For SC Students remain
-                                                re-open from 17/03/2025 to 26/03/2025
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </marquee>
-                    </div>
+                <div class="detailBody scrollBox" id="updateList"></div>
+            </div>
+            <!-- Donors -->
+            <div class="detailContainerNew">
+                <div class="detailsheader">
+                    <h3>Donor names</h3>
                 </div>
+                <div class="detailBody scrollBox" id="donorList"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Gallery</h2>
+
+        <div class="marquee-row marquee-right">
+            <div class="marquee-track">
+                <img src="https://images.unsplash.com/photo-1486308510493-cb6f2c8a8ef9?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 6" />
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 7" />
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 8" />
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 9" />
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 10" />
+
+                <!-- Repeat for smooth infinite scroll -->
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 6" />
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 7" />
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 8" />
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 9" />
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 10" />
+            </div>
+        </div>
+
+        <div class="marquee-row marquee-left">
+
+
+            <div class="marquee-track">
+                <!-- Repeat images for seamless scroll -->
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 1" />
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 2" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 3" />
+                <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 4" />
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 5" />
+
+                <!-- Repeat for smooth infinite scroll -->
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 1" />
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 2" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 3" />
+                <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 4" />
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 5" />
+            </div>
+        </div>
+
+
+        <div class="marquee-row marquee-right slow">
+            <div class="marquee-track">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 11" />
+                <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 12" />
+                <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 13" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 14" />
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 15" />
+
+                <!-- Repeat for smooth infinite scroll -->
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 11" />
+                <img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 12" />
+                <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 13" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 14" />
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                    alt="Photo 15" />
             </div>
         </div>
     </section>
 
     <section class="infoSection">
-        <div class="aboutUsContainer infoInnnerContainer">
-            <div class="photoArea" style="background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);">
-                <img src="assets/AboutUs.jpg" alt="Kalyan Team">
+        <div class="aboutUsContainer infoInnerContainer gradient-yellow-orange">
+            <div class="photoArea">
+                <img src="assets/AboutUs.jpg" alt="Kalyan Team" />
             </div>
-            <div class="textArea" style="background: linear-gradient(90deg, #fff 70%, #ffe14963 100%);">
-                <h2 style="color: #ff9800;">About Us</h2>
+            <div class="textArea">
+                <h2>About Us</h2>
                 <p>
-                    Kalyan Educational And Charitable Trust is a non-profit that provides scholarships, resources, and
-                    mentorship to help students succeed. Founded in 2017, we aim to empower youth from all backgrounds
-                    by supporting their education and creating equal opportunities for academic and personal growth.
+                    Kalyan Educational And Charitable Trust is a non-profit that provides scholarships,
+                    resources, and mentorship to help students succeed. Founded in 2017, we aim to
+                    empower youth from all backgrounds by supporting their education and creating
+                    equal opportunities for academic and personal growth.
                 </p>
             </div>
         </div>
-        <div class="infoContainer infoInnnerContainer">
-            <div class="textArea" style="background: linear-gradient(90deg, #fff 80%, #e0f7fa 100%);">
-                <h2 style="color: #00bcd4;">Our Vision</h2>
+
+        <div class="infoContainer infoInnerContainer gradient-cyan-pink">
+            <div class="textArea">
+                <h2>Our Vision</h2>
                 <p>
-                    Our vision is to empower students by providing them with the knowledge, skills, and opportunities
-                    they need to reach their fullest potential. We believe that education is the foundation for personal
-                    and societal growth. By supporting students at every step of their academic journey, we strive to
-                    create a future where every individual has the resources and encouragement to pursue their dreams
+                    Our vision is to empower students by providing them with the knowledge, skills,
+                    and opportunities they need to reach their fullest potential. We believe that
+                    education is the foundation for personal and societal growth. By supporting
+                    students at every step of their academic journey, we strive to create a future
+                    where every individual has the resources and encouragement to pursue their dreams
                     and contribute meaningfully to the world.
                 </p>
             </div>
-            <div class="photoArea" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                <img src="assets/OurVision.jpg" alt="Our Vision">
+            <div class="photoArea">
+                <img src="assets/OurVision.jpg" alt="Our Vision" />
             </div>
         </div>
-        <div class="goalContainer infoInnnerContainer">
-            <div class="photoArea" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
-                <img src="assets/OurMission.jpg" alt="Our Goal"
-                    style="width: 85%; aspect-ratio: 3/4; object-fit: cover; border-radius: 18px; box-shadow: 0 8px 32px rgba(171,193,238,0.18); border: 4px solid #fff;">
+
+        <div class="goalContainer infoInnerContainer gradient-purple-pink">
+            <div class="photoArea">
+                <img src="assets/OurMission.jpg" alt="Our Goal" class="goalPhoto" />
             </div>
-            <div class="textArea" style="background: linear-gradient(90deg, #fff 80%, #f3e5f5 100%);">
-                <h2 style="color: #7b1fa2;">Our Goal</h2>
+            <div class="textArea">
+                <h2>Our Goal</h2>
                 <p>
-                    Our goal is to create a nurturing and inclusive environment where students can thrive academically,
-                    socially, and personally. We aim to inspire a lifelong love of learning, foster critical thinking,
-                    and encourage students to pursue their passions. By offering scholarships and educational programs,
-                    we strive to remove financial barriers and open doors to endless possibilities for our students'
+                    Our goal is to create a nurturing and inclusive environment where students can
+                    thrive academically, socially, and personally. We aim to inspire a lifelong love
+                    of learning, foster critical thinking, and encourage students to pursue their
+                    passions. By offering scholarships and educational programs, we strive to remove
+                    financial barriers and open doors to endless possibilities for our students'
                     futures.
                 </p>
             </div>
         </div>
     </section>
-    <footer>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What documents do I need to apply?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        You’ll need your Aadhaar card, latest academic marksheet, and income certificate.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Who is eligible for the scholarship?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Any student pursuing education and meeting the income criteria can apply.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is there an application fee?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        No, applying for the scholarship is completely free of cost.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does the approval process take?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Typically, approvals take 2-3 weeks after submission of the application.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call To Action Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>Ready to Take the Next Step?</h2>
+            <p>Join thousands of students who’ve unlocked their potential with our scholarship.</p>
+            <a href="#registration" class="btn btn-primary">Apply Now</a>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="FooterContainer">
-            <div class="footer-content">
+            <div class="footer-content brand">
                 <h3>Kalyan</h3>
-                <div class="centerDiv">
-                    <img src="assets/kalyanlogo.jpg" alt="logo" class="logo">
-                </div>
+                <img src="assets/kalyanLogo.jpg" alt="logo" class="logo">
             </div>
-            <div class="footer-content">
+            <div class="footer-content contact">
                 <h3>Contact Us</h3>
-                <div class="centerDiv columnFlex">
-
-                    <p><strong>Email:</strong> kalyanconsultancy6800@gmail.com</p>
-                    <p><strong>Phone:</strong> +915222222222</p>
-                    <p><strong>Address:</strong> xyz society</p>
-                </div>
+                <p><i class="fa fa-envelope"></i> kalyanconsultancy6800@gmail.com</p>
+                <p><i class="fa fa-phone"></i> +91 522 222 2222</p>
+                <p><i class="fa fa-map-marker-alt"></i> xyz society</p>
             </div>
-
-            <div class="footer-content">
+            <div class="footer-content social">
                 <h3>Follow us</h3>
                 <ul class="social-icons">
-                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://www.instagram.com/kalyan_trust_2017"><i class="fab fa-instagram"></i></a>
-                    </li>
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/kalyan_trust_2017"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="https://www.youtube.com/@kalyaninspiration"><i class="fab fa-youtube"></i></a></li>
                 </ul>
             </div>
         </div>
-        <div class="bottam-bar">
-            <p>&copy; 2025 Kalyan Educational And Cheritable Trust. All rights reserved.</p>
+        <div class="bottom-bar">
+            <p>&copy; 2025 Kalyan Educational And Charitable Trust. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Custom Alert -->
+    <div id="customAlert" class="custom-alert hidden">
+        <div class="custom-alert-box">
+            <p id="customAlertMsg">Default message</p>
+            <button onclick="closeCustomAlert()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle main nav
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const navbarList = document.getElementById("navbarList");
+
+        hamburgerBtn.addEventListener("click", () => {
+            navbarList.classList.toggle("show");
+        });
+
+        // Toggle mobile dropdowns
+        document.querySelectorAll(".toggle-submenu").forEach(toggle => {
+            toggle.addEventListener("click", e => {
+                e.preventDefault();
+                const parent = toggle.closest(".has-dropdown");
+                parent.classList.toggle("open");
+            });
+        });
+    </script>
+
+
     <script src="/js/main.js"></script>
     <script src="/js/chatbot.js"></script>
 </body>
